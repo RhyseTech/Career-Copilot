@@ -1,0 +1,449 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Career Copilot - 404 Page Not Found</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #060913;
+      color: #f1f5f9;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    /* Subtle glowing glass surfaces */
+    .glass-nav {
+      background: rgba(10, 15, 29, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card {
+      background: radial-gradient(120% 120% at 50% 0%, rgba(19, 26, 45, 0.75) 0%, rgba(10, 14, 26, 0.88) 100%);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+    .glass-pill {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-quick-link {
+      background: rgba(18, 26, 45, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-quick-link:hover {
+      background: rgba(30, 41, 69, 0.75);
+      border-color: rgba(0, 240, 255, 0.35);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(0, 240, 255, 0.15);
+    }
+
+    /* 404 Glitch & Shimmer Keyframes */
+    @keyframes floatGentle {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.45; filter: blur(40px); transform: scale(1); }
+      50% { opacity: 0.75; filter: blur(55px); transform: scale(1.08); }
+    }
+    @keyframes scanline {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(1000%); }
+    }
+    @keyframes textFlicker {
+      0%, 100% { opacity: 1; }
+      41% { opacity: 0.95; }
+      42% { opacity: 0.7; }
+      43% { opacity: 1; }
+      82% { opacity: 1; }
+      83% { opacity: 0.85; }
+      84% { opacity: 1; }
+    }
+    .animate-float {
+      animation: floatGentle 5s ease-in-out infinite;
+    }
+    .animate-glow-pulse {
+      animation: pulseGlow 6s ease-in-out infinite;
+    }
+    .glitch-text {
+      animation: textFlicker 4s infinite;
+      position: relative;
+    }
+    
+    /* Gradient text helper */
+    .text-gradient-cyan {
+      background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 45%, #00f0ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-gradient-neon {
+      background: linear-gradient(135deg, #00f0ff 0%, #6366f1 50%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="relative flex flex-col justify-between select-none min-h-screen">
+<!-- Interactive 3D Three.js Ambient Scene (Disrupted cosmic mesh & floating quantum nodes) -->
+<!-- STITCH_THREEJS_START:ANIMATION_38 class="fixed inset-0 w-full h-full pointer-events-auto z-0" -->
+<div class="fixed inset-0 w-full h-full pointer-events-auto z-0" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_38" style="width:100%;height:100%"><canvas width="1600" height="698" style="display: block; width: 1280px; height: 559px;"></canvas></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_38');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // Three.js Production-Ready 404 Disrupted Coordinate Space & Floating Quantum Shards
+const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000);
+camera.position.z = 45;
+
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+container.appendChild(renderer.domElement);
+
+// Lighting
+const ambientLight = new THREE.AmbientLight(0x0a192f, 2.8);
+scene.add(ambientLight);
+
+const pointLightCyan = new THREE.PointLight(0x00f0ff, 4.5, 130);
+pointLightCyan.position.set(-25, 18, 30);
+scene.add(pointLightCyan);
+
+const pointLightPurple = new THREE.PointLight(0x6366f1, 4.0, 130);
+pointLightPurple.position.set(25, -15, 25);
+scene.add(pointLightPurple);
+
+const pointLightAlert = new THREE.PointLight(0xec4899, 2.5, 90);
+pointLightAlert.position.set(0, 0, 20);
+scene.add(pointLightAlert);
+
+// Disrupted Wireframe Void Geometry (Glitching topographic landscape)
+const planeGeo = new THREE.PlaneGeometry(95, 65, 48, 36);
+const planeMat = new THREE.MeshStandardMaterial({
+  color: 0x1e293b,
+  wireframe: true,
+  roughness: 0.3,
+  metalness: 0.8,
+  transparent: true,
+  opacity: 0.16
+});
+const wirePlane = new THREE.Mesh(planeGeo, planeMat);
+wirePlane.rotation.x = -Math.PI / 2.7;
+wirePlane.position.y = -14;
+wirePlane.position.z = -6;
+scene.add(wirePlane);
+
+// Broken / Glitched floating Polyhedral Clusters (Broken links / 404 nodes)
+const nodeGroup = new THREE.Group();
+const icosaGeo = new THREE.IcosahedronGeometry(1.4, 0);
+const octaGeo = new THREE.OctahedronGeometry(1.2, 0);
+const tetraGeo = new THREE.TetrahedronGeometry(1.1, 0);
+
+const matCyan = new THREE.MeshPhongMaterial({
+  color: 0x00f0ff,
+  emissive: 0x0284c7,
+  emissiveIntensity: 0.7,
+  shininess: 90,
+  wireframe: true,
+  transparent: true,
+  opacity: 0.45
+});
+
+const matPurple = new THREE.MeshPhongMaterial({
+  color: 0xa855f7,
+  emissive: 0x6366f1,
+  emissiveIntensity: 0.8,
+  shininess: 90,
+  wireframe: true,
+  transparent: true,
+  opacity: 0.4
+});
+
+const matAlert = new THREE.MeshPhongMaterial({
+  color: 0xf43f5e,
+  emissive: 0xe11d48,
+  emissiveIntensity: 0.75,
+  shininess: 100,
+  wireframe: true,
+  transparent: true,
+  opacity: 0.4
+});
+
+const geos = [icosaGeo, octaGeo, tetraGeo];
+const mats = [matCyan, matPurple, matAlert];
+const shards = [];
+
+for(let i = 0; i < 24; i++) {
+  const geo = geos[i % geos.length];
+  const mat = mats[i % mats.length];
+  const mesh = new THREE.Mesh(geo, mat);
+  
+  // Distribute in a toroidal or spherical ambient cloud surrounding center
+  const angle = Math.random() * Math.PI * 2;
+  const radius = 14 + Math.random() * 26;
+  mesh.position.set(
+    Math.cos(angle) * radius,
+    (Math.random() - 0.5) * 36,
+    (Math.random() - 0.5) * 22
+  );
+  mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
+  const scale = 0.5 + Math.random() * 0.9;
+  mesh.scale.set(scale, scale, scale);
+  
+  mesh.userData = {
+    rotSpeedX: (Math.random() - 0.5) * 0.025,
+    rotSpeedY: (Math.random() - 0.5) * 0.025,
+    rotSpeedZ: (Math.random() - 0.5) * 0.02,
+    baseX: mesh.position.x,
+    baseY: mesh.position.y,
+    phase: Math.random() * Math.PI * 2,
+    floatSpeed: 0.0015 + Math.random() * 0.0025,
+    driftRadius: 1.5 + Math.random() * 2.0
+  };
+  nodeGroup.add(mesh);
+  shards.push(mesh);
+}
+scene.add(nodeGroup);
+
+// Stardust Particle Constellation with glitch drift
+const particleCount = 320;
+const pGeometry = new THREE.BufferGeometry();
+const pPositions = new Float32Array(particleCount * 3);
+
+for (let i = 0; i < particleCount; i++) {
+  pPositions[i * 3] = (Math.random() - 0.5) * 120;
+  pPositions[i * 3 + 1] = (Math.random() - 0.5) * 75;
+  pPositions[i * 3 + 2] = (Math.random() - 0.5) * 45;
+}
+pGeometry.setAttribute('position', new THREE.BufferAttribute(pPositions, 3));
+
+// Particle Glow Sprite
+const canvas = document.createElement('canvas');
+canvas.width = 32;
+canvas.height = 32;
+const ctx = canvas.getContext('2d');
+const gradient = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
+gradient.addColorStop(0, 'rgba(0, 240, 255, 1)');
+gradient.addColorStop(0.35, 'rgba(168, 85, 247, 0.65)');
+gradient.addColorStop(1, 'rgba(15, 23, 42, 0)');
+ctx.fillStyle = gradient;
+ctx.beginPath();
+ctx.arc(16, 16, 16, 0, Math.PI * 2);
+ctx.fill();
+
+const pTexture = new THREE.CanvasTexture(canvas);
+const pMaterial = new THREE.PointsMaterial({
+  size: 1.7,
+  map: pTexture,
+  transparent: true,
+  opacity: 0.6,
+  blending: THREE.AdditiveBlending,
+  depthWrite: false
+});
+
+const particles = new THREE.Points(pGeometry, pMaterial);
+scene.add(particles);
+
+// Interactive mouse parallax
+let mouseX = 0;
+let mouseY = 0;
+let targetX = 0;
+let targetY = 0;
+
+window.addEventListener('mousemove', (e) => {
+  const normX = (e.clientX / window.innerWidth) * 2 - 1;
+  const normY = -(e.clientY / window.innerHeight) * 2 + 1;
+  targetX = normX * 4.5;
+  targetY = normY * 3.5;
+});
+
+window.addEventListener('resize', () => {
+  const w = container.clientWidth || window.innerWidth;
+  const h = container.clientHeight || window.innerHeight;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+});
+
+// Animation Loop
+const clock = new THREE.Clock();
+const posAttr = planeGeo.attributes.position;
+const vCount = posAttr.count;
+
+function animate() {
+  requestAnimationFrame(animate);
+  const elapsedTime = clock.getElapsedTime();
+
+  // Smooth camera follow
+  mouseX += (targetX - mouseX) * 0.05;
+  mouseY += (targetY - mouseY) * 0.05;
+  camera.position.x = mouseX;
+  camera.position.y = mouseY;
+  camera.lookAt(0, 0, 0);
+
+  // Animate undulating floor plane with subtle intermittent wave glitch
+  for (let i = 0; i < vCount; i++) {
+    const u = posAttr.getX(i);
+    const v = posAttr.getY(i);
+    const z = Math.sin(u * 0.14 + elapsedTime * 1.3) * Math.cos(v * 0.16 + elapsedTime * 0.95) * 2.2;
+    posAttr.setZ(i, z);
+  }
+  posAttr.needsUpdate = true;
+
+  // Animate shards
+  shards.forEach(mesh => {
+    mesh.rotation.x += mesh.userData.rotSpeedX;
+    mesh.rotation.y += mesh.userData.rotSpeedY;
+    mesh.rotation.z += mesh.userData.rotSpeedZ;
+    mesh.position.y = mesh.userData.baseY + Math.sin(elapsedTime * 1.4 + mesh.userData.phase) * mesh.userData.driftRadius;
+    mesh.position.x = mesh.userData.baseX + Math.cos(elapsedTime * 0.8 + mesh.userData.phase) * 0.8;
+  });
+
+  // Slowly rotate particle field with counter-oscillation
+  particles.rotation.y = elapsedTime * 0.02;
+  particles.rotation.x = Math.sin(elapsedTime * 0.02) * 0.06;
+
+  renderer.render(scene, camera);
+}
+
+animate();
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_38 -->
+<!-- Ambient Glow Orbs behind main content -->
+<div class="fixed top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] bg-cyan-500/15 rounded-full pointer-events-none animate-glow-pulse z-0"></div>
+<div class="fixed top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[440px] h-[440px] bg-indigo-600/15 rounded-full pointer-events-none animate-glow-pulse z-0" style="animation-delay: 2.5s;"></div>
+<!-- Unified Top Navigation Bar (Career Copilot Standard Header) -->
+<header class="glass-nav sticky top-0 z-40 px-6 py-3.5 flex items-center justify-between">
+<!-- Left: Brand Logo & Campus Badge -->
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-2.5 group" href="#">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-indigo-600 flex items-center justify-center shadow-[0_0_16px_rgba(0,240,255,0.4)] group-hover:shadow-[0_0_22px_rgba(0,240,255,0.6)] transition-all">
+<svg class="w-4 h-4 text-white fill-current" viewBox="0 0 24 24">
+<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+</svg>
+</div>
+<span class="text-base font-bold tracking-tight text-white group-hover:text-cyan-300 transition-colors">Career Copilot</span>
+</a>
+<div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-[11px] font-medium text-cyan-300 shadow-[0_0_10px_rgba(0,240,255,0.15)]">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+        Campus 2025
+      </div>
+</div>
+<!-- Center: Simplified 4-Step Placement Stepper -->
+<nav class="hidden md:flex items-center p-1 rounded-full glass-pill">
+<a class="px-3.5 py-1 text-xs font-medium text-slate-400 hover:text-slate-200 transition-colors" href="#">
+        1. Welcome
+      </a>
+<span class="text-slate-600 text-xs">/</span>
+<a class="px-3.5 py-1 text-xs font-medium text-slate-400 hover:text-slate-200 transition-colors" href="#">
+        2. ATS Check
+      </a>
+<span class="text-slate-600 text-xs">/</span>
+<a class="px-3.5 py-1 text-xs font-medium text-slate-400 hover:text-slate-200 transition-colors" href="#">
+        3. Optimizer
+      </a>
+<span class="text-slate-600 text-xs">/</span>
+<a class="px-3.5 py-1 text-xs font-medium text-slate-400 hover:text-slate-200 transition-colors" href="#">
+        4. Templates
+      </a>
+</nav>
+<!-- Right: Student Profile & Help / Diagnostics -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/70 border border-slate-700/60 text-xs">
+<div class="w-5 h-5 rounded-full bg-indigo-500 text-white font-bold flex items-center justify-center text-[10px]">
+          AK
+        </div>
+<span class="hidden sm:inline text-slate-300 font-medium">Arun Kumar</span>
+<span class="text-slate-500">• B.Tech CSE '25</span>
+</div>
+<!-- Quick Back to Safety Button -->
+<a class="px-3.5 py-1.5 rounded-lg bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-400/30 text-cyan-300 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-[0_0_12px_rgba(0,240,255,0.15)]" href="#">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Dashboard</span>
+</a>
+</div>
+</header>
+<!-- Main Hero 404 Disruption Content -->
+<main class="relative z-10 flex-1 flex flex-col items-center justify-center px-4 py-8 text-center max-w-4xl mx-auto w-full">
+<!-- Status Diagnostic Badge -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/25 text-rose-400 text-xs font-medium mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(244,63,94,0.15)]">
+<span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+<span class="font-mono">ERR_404_ROUTE_DESYNCHRONIZED</span>
+<span class="text-rose-600/70">|</span>
+<span class="text-slate-400">Campus Cloud v2.4</span>
+</div>
+<!-- Big 404 Holographic Display with Glitch Effect -->
+<div class="relative animate-float mb-2">
+<!-- Glow Underlay -->
+<div class="absolute inset-0 flex items-center justify-center -z-10 blur-3xl opacity-30">
+<span class="text-8xl md:text-[140px] font-black tracking-tighter text-cyan-400 select-none">404</span>
+</div>
+<!-- Main Gradient Display -->
+<h1 class="text-7xl md:text-[130px] font-extrabold tracking-tight leading-none text-gradient-neon glitch-text">
+        404
+      </h1>
+<!-- Subtitle badge over 404 -->
+<div class="inline-block -mt-2 px-3 py-1 rounded-md bg-slate-900/80 border border-white/10 text-xs text-slate-300 font-mono">
+        HTTP 404: RESOURCE_NOT_FOUND
+      </div>
+</div>
+<!-- Descriptive Heading & Diagnostic Copy -->
+<div class="max-w-xl mx-auto mt-4 mb-8">
+<h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight mb-3">
+        Oops! Placement Route Lost in Orbit
+      </h2>
+<p class="text-sm md:text-base text-slate-300/80 leading-relaxed font-normal">
+        The resume optimization checkpoint or application portal you requested seems to have been relocated, archived by the TPO placement cell, or never existed in this coordinate space.
+      </p>
+</div>
+<!-- Glassmorphic Action & Recovery Card -->
+
+</main>
+<!-- Placement Compliance Footer Bar (Matching the Suite) -->
+<footer class="relative z-10 px-6 py-3.5 glass-nav border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-3">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1.5 text-emerald-400">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="font-medium">100% Student Privacy Guarantee</span>
+</div>
+<span class="hidden md:inline text-slate-600">•</span>
+<span class="hidden md:inline text-slate-400">Aligned with IIT/NIT &amp; Tier 1/2 Placement Cells</span>
+<span class="hidden md:inline text-slate-600">•</span>
+<span class="hidden md:inline text-slate-400">Superset &amp; CoCubes Calibrated</span>
+</div>
+<div class="flex items-center gap-4 text-slate-400">
+<span class="text-slate-500">© 2025 Career Copilot</span>
+<a class="hover:text-slate-200 transition-colors" href="#">TPO Handbook</a>
+<a class="hover:text-slate-200 transition-colors" href="#">ATS Rules</a>
+<a class="hover:text-slate-200 transition-colors" href="#">Helpdesk</a>
+</div>
+</footer>
+
+
+
+</body></html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Career Copilot - 404 Page Not Found</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #060913;
+      color: #f1f5f9;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    /* Subtle glowing glass surfaces */
+    .glass-nav {
+      background: rgba(10, 15, 29, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-obsidian {
+      background: radial-gradient(130% 130% at 50% 0%, rgba(16, 23, 42, 0.82) 0%, rgba(8, 12, 22, 0.94) 100%);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(0, 240, 255, 0.22);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 25px -5px rgba(0, 240, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+    .glass-pill {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Cyberpunk Glitch & Scanline Effects */
+    .cyber-scanlines {
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0, 0, 0, 0.35) 50%,
+        rgba(0, 0, 0, 0.35)
+      );
+      background-size: 100% 4px;
+      pointer-events: none;
+    }
+
+    .glitch-heading-404 {
+      text-shadow: 
+        -2px -2px 0 #00f0ff,
+        2px 2px 0 #ff007f,
+        0 0 25px rgba(0, 240, 255, 0.6),
+        0 0 50px rgba(255, 0, 127, 0.35);
+      animation: textGlitchRGB 3.5s infinite;
+      position: relative;
+    }
+
+    @keyframes textGlitchRGB {
+      0%, 100% {
+        text-shadow: -2px -1px 0 #00f0ff, 2px 1px 0 #ff007f, 0 0 25px rgba(0,240,255,0.4);
+      }
+      38% {
+        text-shadow: -2px -1px 0 #00f0ff, 2px 1px 0 #ff007f;
+      }
+      40% {
+        text-shadow: 3px -2px 0 #ff007f, -3px 2px 0 #00f0ff, 0 0 35px rgba(0,240,255,0.7);
+        transform: translate(-1px, 1px);
+      }
+      42% {
+        text-shadow: -3px 2px 0 #ff007f, 3px -2px 0 #00f0ff;
+        transform: translate(2px, -1px);
+      }
+      44% {
+        text-shadow: -2px -1px 0 #00f0ff, 2px 1px 0 #ff007f;
+        transform: translate(0, 0);
+      }
+      78% {
+        text-shadow: -2px -1px 0 #00f0ff, 2px 1px 0 #ff007f;
+      }
+      80% {
+        text-shadow: 4px 1px 0 #00f0ff, -4px -1px 0 #ff007f;
+        transform: translate(-1.5px, 0);
+      }
+      82% {
+        text-shadow: -2px -1px 0 #00f0ff, 2px 1px 0 #ff007f;
+        transform: translate(0, 0);
+      }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.35; filter: blur(50px); transform: scale(1); }
+      50% { opacity: 0.65; filter: blur(70px); transform: scale(1.08); }
+    }
+    @keyframes floatGentle {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+    .animate-float {
+      animation: floatGentle 5s ease-in-out infinite;
+    }
+    .animate-glow-pulse {
+      animation: pulseGlow 6s ease-in-out infinite;
+    }
+
+    /* Cyber button hover styles */
+    .btn-cyber-primary {
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.22) 0%, rgba(6, 182, 212, 0.12) 100%);
+      border: 1px solid rgba(0, 240, 255, 0.5);
+      box-shadow: 0 0 20px -3px rgba(0, 240, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-cyber-primary:hover {
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.35) 0%, rgba(6, 182, 212, 0.22) 100%);
+      border-color: rgba(0, 240, 255, 0.85);
+      box-shadow: 0 0 30px 2px rgba(0, 240, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+    }
+    .btn-cyber-secondary {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-cyber-secondary:hover {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: rgba(255, 0, 127, 0.5);
+      box-shadow: 0 0 20px -2px rgba(255, 0, 127, 0.25);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="relative flex flex-col justify-between select-none min-h-screen">
+<!-- Interactive 3D Three.js Ambient Scene (Glitch Tone & Chromatic Displacement) -->
+<!-- STITCH_THREEJS_START:ANIMATION_41 class="fixed inset-0 w-full h-full pointer-events-none" -->
+<div class="fixed inset-0 w-full h-full pointer-events-none" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_41" style="width:100%;height:100%"><canvas width="1600" height="692" style="display: block; width: 1280px; height: 554px;"></canvas></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_41');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // Three.js Production-Ready Glitch Tone & Chromatic Displacement Scene for 404
+const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(55, width / height, 0.1, 1000);
+camera.position.z = 40;
+
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+container.appendChild(renderer.domElement);
+
+// Glitch Lighting
+const ambientLight = new THREE.AmbientLight(0x060b13, 3.2);
+scene.add(ambientLight);
+
+const glitchPointCyan = new THREE.PointLight(0x00f0ff, 5.0, 140);
+glitchPointCyan.position.set(-20, 15, 25);
+scene.add(glitchPointCyan);
+
+const glitchPointMagenta = new THREE.PointLight(0xff0055, 4.5, 140);
+glitchPointMagenta.position.set(22, -12, 25);
+scene.add(glitchPointMagenta);
+
+const strobeLight = new THREE.PointLight(0xffffff, 0, 80);
+strobeLight.position.set(0, 0, 30);
+scene.add(strobeLight);
+
+// Group for all glitching elements
+const mainGroup = new THREE.Group();
+scene.add(mainGroup);
+
+// 1. Fragmented 3D Glitch Ring / Torus Cluster (Representing severed network loop / 404 rupture)
+const torusGeo = new THREE.TorusGeometry(12, 0.8, 16, 70);
+const glitchTorusMat = new THREE.MeshStandardMaterial({
+  color: 0x00f0ff,
+  wireframe: true,
+  roughness: 0.2,
+  metalness: 0.9,
+  transparent: true,
+  opacity: 0.45
+});
+const torusMesh = new THREE.Mesh(torusGeo, glitchTorusMat);
+torusMesh.rotation.x = Math.PI / 3.2;
+mainGroup.add(torusMesh);
+
+// 2. Secondary counter-rotating glitch torus with magenta slice
+const torusGeo2 = new THREE.TorusGeometry(14.5, 0.4, 12, 60);
+const glitchTorusMat2 = new THREE.MeshStandardMaterial({
+  color: 0xff0077,
+  wireframe: true,
+  roughness: 0.3,
+  metalness: 0.8,
+  transparent: true,
+  opacity: 0.35
+});
+const torusMesh2 = new THREE.Mesh(torusGeo2, glitchTorusMat2);
+torusMesh2.rotation.y = Math.PI / 4;
+mainGroup.add(torusMesh2);
+
+// 3. Glitching Wireframe Topography Grid with dynamic vertex tear
+const planeGeo = new THREE.PlaneGeometry(100, 70, 50, 40);
+const planeMat = new THREE.MeshBasicMaterial({
+  color: 0x1e293b,
+  wireframe: true,
+  transparent: true,
+  opacity: 0.18
+});
+const gridPlane = new THREE.Mesh(planeGeo, planeMat);
+gridPlane.rotation.x = -Math.PI / 2.6;
+gridPlane.position.y = -14;
+gridPlane.position.z = -5;
+scene.add(gridPlane);
+
+// 4. Glitch Shards (Polyhedra with chromatic shift and jitter)
+const shardGroup = new THREE.Group();
+const icosaGeo = new THREE.IcosahedronGeometry(1.3, 0);
+const boxGeo = new THREE.BoxGeometry(1.6, 1.6, 1.6);
+const octaGeo = new THREE.OctahedronGeometry(1.4, 0);
+
+const shardGeos = [icosaGeo, boxGeo, octaGeo];
+const shardMats = [
+  new THREE.MeshStandardMaterial({ color: 0x00f0ff, wireframe: true, roughness: 0.1, transparent: true, opacity: 0.65 }),
+  new THREE.MeshStandardMaterial({ color: 0xff0066, wireframe: true, roughness: 0.1, transparent: true, opacity: 0.65 }),
+  new THREE.MeshStandardMaterial({ color: 0x7c3aed, wireframe: true, roughness: 0.1, transparent: true, opacity: 0.6 })
+];
+
+const shards = [];
+const shardCount = 28;
+
+for(let i = 0; i < shardCount; i++) {
+  const geo = shardGeos[i % shardGeos.length];
+  const mat = shardMats[i % shardMats.length];
+  const mesh = new THREE.Mesh(geo, mat);
+  
+  const angle = Math.random() * Math.PI * 2;
+  const rad = 12 + Math.random() * 24;
+  mesh.position.set(
+    Math.cos(angle) * rad,
+    (Math.random() - 0.5) * 32,
+    (Math.random() - 0.5) * 20
+  );
+  mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
+  const s = 0.5 + Math.random() * 0.9;
+  mesh.scale.set(s, s, s);
+
+  mesh.userData = {
+    originX: mesh.position.x,
+    originY: mesh.position.y,
+    originZ: mesh.position.z,
+    rotX: (Math.random() - 0.5) * 0.03,
+    rotY: (Math.random() - 0.5) * 0.03,
+    rotZ: (Math.random() - 0.5) * 0.02,
+    speed: 0.001 + Math.random() * 0.003,
+    phase: Math.random() * Math.PI * 2,
+    isGlitching: false,
+    glitchTimer: 0
+  };
+  shardGroup.add(mesh);
+  shards.push(mesh);
+}
+mainGroup.add(shardGroup);
+
+// 5. Digital Scanlines & Floating Glitch Particles
+const pCount = 380;
+const pGeo = new THREE.BufferGeometry();
+const pPos = new Float32Array(pCount * 3);
+const pColors = new Float32Array(pCount * 3);
+
+for (let i = 0; i < pCount; i++) {
+  pPos[i * 3] = (Math.random() - 0.5) * 110;
+  pPos[i * 3 + 1] = (Math.random() - 0.5) * 70;
+  pPos[i * 3 + 2] = (Math.random() - 0.5) * 45;
+
+  // Glitch RGB splits
+  if (i % 3 === 0) {
+    pColors[i * 3] = 0.0;     pColors[i * 3 + 1] = 0.94;  pColors[i * 3 + 2] = 1.0; // Cyan
+  } else if (i % 3 === 1) {
+    pColors[i * 3] = 1.0;     pColors[i * 3 + 1] = 0.0;   pColors[i * 3 + 2] = 0.45; // Magenta
+  } else {
+    pColors[i * 3] = 0.55;    pColors[i * 3 + 1] = 0.35;  pColors[i * 3 + 2] = 1.0; // Indigo
+  }
+}
+pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+pGeo.setAttribute('color', new THREE.BufferAttribute(pColors, 3));
+
+// Particle Texture
+const pCanvas = document.createElement('canvas');
+pCanvas.width = 16;
+pCanvas.height = 16;
+const pCtx = pCanvas.getContext('2d');
+pCtx.fillStyle = '#ffffff';
+pCtx.fillRect(2, 6, 12, 4); // Horizontal glitch slice particle
+
+const pTex = new THREE.CanvasTexture(pCanvas);
+const pMat = new THREE.PointsMaterial({
+  size: 1.4,
+  vertexColors: true,
+  map: pTex,
+  transparent: true,
+  opacity: 0.65,
+  blending: THREE.AdditiveBlending,
+  depthWrite: false
+});
+const particles = new THREE.Points(pGeo, pMat);
+scene.add(particles);
+
+// Mouse tracking for parallax and interactive distortion
+let mouseX = 0;
+let mouseY = 0;
+let targetX = 0;
+let targetY = 0;
+
+window.addEventListener('mousemove', (e) => {
+  const normX = (e.clientX / window.innerWidth) * 2 - 1;
+  const normY = -(e.clientY / window.innerHeight) * 2 + 1;
+  targetX = normX * 4.5;
+  targetY = normY * 3.5;
+});
+
+window.addEventListener('resize', () => {
+  const w = container.clientWidth || window.innerWidth;
+  const h = container.clientHeight || window.innerHeight;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+});
+
+// Animation and Glitch Logic Loop
+const clock = new THREE.Clock();
+const gridPos = planeGeo.attributes.position;
+const vCount = gridPos.count;
+
+let glitchInterval = 0;
+let isSystemGlitch = false;
+let glitchDuration = 0;
+
+function animate() {
+  requestAnimationFrame(animate);
+  const elapsedTime = clock.getElapsedTime();
+  const delta = clock.getDelta();
+
+  // Mouse interpolation
+  mouseX += (targetX - mouseX) * 0.05;
+  mouseY += (targetY - mouseY) * 0.05;
+  camera.position.x = mouseX;
+  camera.position.y = mouseY;
+  camera.lookAt(0, 0, 0);
+
+  // Periodic Random Glitch Pulse (glitch tone trigger)
+  glitchInterval += 0.016;
+  if (glitchInterval > 2.5 + Math.random() * 2.0) {
+    isSystemGlitch = true;
+    glitchDuration = 0.12 + Math.random() * 0.18;
+    glitchInterval = 0;
+    strobeLight.intensity = Math.random() > 0.5 ? 2.8 : 0;
+  }
+
+  if (isSystemGlitch) {
+    glitchDuration -= 0.016;
+    if (glitchDuration <= 0) {
+      isSystemGlitch = false;
+      strobeLight.intensity = 0;
+      mainGroup.position.set(0, 0, 0);
+    } else {
+      // Jitter group translation (chromatic horizontal tearing)
+      mainGroup.position.x = (Math.random() - 0.5) * 2.2;
+      mainGroup.position.y = (Math.random() - 0.5) * 0.8;
+      glitchPointCyan.intensity = 6.5 + (Math.random() - 0.5) * 3;
+      glitchPointMagenta.intensity = 6.0 + (Math.random() - 0.5) * 3;
+    }
+  } else {
+    glitchPointCyan.intensity = 4.2;
+    glitchPointMagenta.intensity = 3.8;
+  }
+
+  // Torus rotations with micro-glitches
+  torusMesh.rotation.z = elapsedTime * 0.25;
+  torusMesh.rotation.y = elapsedTime * 0.15;
+  torusMesh2.rotation.x = -elapsedTime * 0.3;
+  torusMesh2.rotation.z = -elapsedTime * 0.2;
+
+  // Grid vertex wave animation with occasional row-tear glitch
+  for (let i = 0; i < vCount; i++) {
+    const u = gridPos.getX(i);
+    const v = gridPos.getY(i);
+    let z = Math.sin(u * 0.12 + elapsedTime * 1.5) * Math.cos(v * 0.14 + elapsedTime * 1.1) * 2.4;
+    
+    // Inject glitch displacement on certain rows during glitch spike
+    if (isSystemGlitch && Math.abs(v % 8.0) < 1.5) {
+      z += (Math.random() - 0.5) * 3.5;
+    }
+    gridPos.setZ(i, z);
+  }
+  gridPos.needsUpdate = true;
+
+  // Shards floating & sporadic individual glitch shifts
+  shards.forEach((mesh, idx) => {
+    mesh.rotation.x += mesh.userData.rotX;
+    mesh.rotation.y += mesh.userData.rotY;
+    mesh.rotation.z += mesh.userData.rotZ;
+
+    let posX = mesh.userData.originX + Math.cos(elapsedTime * 0.9 + mesh.userData.phase) * 0.9;
+    let posY = mesh.userData.originY + Math.sin(elapsedTime * 1.4 + mesh.userData.phase) * 1.4;
+    let posZ = mesh.userData.originZ;
+
+    // Glitch dislocation
+    if (isSystemGlitch && idx % 4 === 0) {
+      posX += (Math.random() - 0.5) * 4.0;
+      posY += (Math.random() - 0.5) * 1.5;
+      mesh.scale.x = (0.5 + Math.random() * 0.9) * (Math.random() > 0.7 ? 1.8 : 1.0);
+    }
+    mesh.position.set(posX, posY, posZ);
+  });
+
+  // Particle constellation movement
+  particles.rotation.y = elapsedTime * 0.02;
+  particles.rotation.x = Math.sin(elapsedTime * 0.02) * 0.05;
+
+  renderer.render(scene, camera);
+}
+
+animate();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_41 -->
+<!-- Screen overlay scanlines for CRT / terminal aesthetic -->
+<div class="fixed inset-0 cyber-scanlines z-[1] opacity-25 pointer-events-none"></div>
+<!-- Ambient Glow Orbs behind main content -->
+<div class="fixed top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[580px] h-[580px] bg-cyan-500/15 rounded-full pointer-events-none animate-glow-pulse z-0"></div>
+<div class="fixed top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] bg-fuchsia-600/15 rounded-full pointer-events-none animate-glow-pulse z-0" style="animation-delay: 2.5s;"></div>
+<!-- Unified Top Navigation Bar (Career Copilot Standard Header) -->
+<header class="glass-nav sticky top-0 z-40 px-6 py-3.5 flex items-center justify-between">
+<!-- Left: Brand Logo & Campus Badge -->
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-2.5 group" href="#">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-indigo-600 flex items-center justify-center shadow-[0_0_16px_rgba(0,240,255,0.4)] group-hover:shadow-[0_0_22px_rgba(0,240,255,0.6)] transition-all">
+<svg class="w-4 h-4 text-white fill-current" viewBox="0 0 24 24">
+<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+</svg>
+</div>
+<span class="text-base font-bold tracking-tight text-white group-hover:text-cyan-300 transition-colors">Career Copilot</span>
+</a>
+<div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-[11px] font-medium text-cyan-300 shadow-[0_0_10px_rgba(0,240,255,0.15)]">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+        Campus 2025
+      </div>
+</div>
+<!-- Center: Simplified 4-Step Placement Stepper -->
+<nav class="hidden md:flex items-center p-1 rounded-full glass-pill">
+<a class="px-3.5 py-1 text-xs font-medium text-slate-400 hover:text-slate-200 transition-colors" href="#">
+        1. Welcome
+      </a>
+<span class="text-slate-600 text-xs">/</span>
+<a class="px-3.5 py-1 text-xs font-medium text-slate-400 hover:text-slate-200 transition-colors" href="#">
+        2. ATS Check
+      </a>
+<span class="text-slate-600 text-xs">/</span>
+<a class="px-3.5 py-1 text-xs font-medium text-slate-400 hover:text-slate-200 transition-colors" href="#">
+        3. Optimizer
+      </a>
+<span class="text-slate-600 text-xs">/</span>
+<a class="px-3.5 py-1 text-xs font-medium text-slate-400 hover:text-slate-200 transition-colors" href="#">
+        4. Templates
+      </a>
+</nav>
+<!-- Right: Student Profile & Help / Diagnostics -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/70 border border-slate-700/60 text-xs">
+<div class="w-5 h-5 rounded-full bg-indigo-500 text-white font-bold flex items-center justify-center text-[10px]">
+          AK
+        </div>
+<span class="hidden sm:inline text-slate-300 font-medium">Arun Kumar</span>
+<span class="text-slate-500">• B.Tech CSE '25</span>
+</div>
+<!-- Quick Back to Safety Button -->
+<a class="px-3.5 py-1.5 rounded-lg bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-400/30 text-cyan-300 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-[0_0_12px_rgba(0,240,255,0.15)]" href="#">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Dashboard</span>
+</a>
+</div>
+</header>
+<!-- Main Hero 404 Cyber Glitch Content -->
+<main class="relative z-10 flex-1 flex flex-col items-center justify-center px-4 py-8 text-center max-w-4xl mx-auto w-full">
+<!-- Cyber Glitch Status Diagnostic Badge -->
+<div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-rose-500/40 text-rose-400 text-xs font-mono mb-4 backdrop-blur-md shadow-[0_0_20px_rgba(244,63,94,0.2)]">
+<span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+<span class="font-bold tracking-wide text-rose-300">SYSTEM STATUS: DESYNCHRONIZED (404)</span>
+<span class="text-slate-600">|</span>
+<span class="text-cyan-400 text-[11px]">0x7E_SIGNAL_LOST</span>
+<span class="text-slate-600">|</span>
+<span class="text-slate-400 text-[11px]">Campus Cloud v2.4</span>
+</div>
+<!-- Big 404 Holographic Display with RGB Chromatic Aberration -->
+<div class="relative animate-float my-1">
+<!-- Ambient Glow Underlay -->
+<div class="absolute inset-0 flex items-center justify-center -z-10 blur-3xl opacity-40">
+<span class="text-8xl md:text-[150px] font-black tracking-tighter text-cyan-400 select-none">404</span>
+</div>
+<!-- Main RGB Glitch Heading -->
+<h1 class="text-7xl sm:text-8xl md:text-[140px] font-black tracking-tight leading-none text-white glitch-heading-404 select-none">
+        404
+      </h1>
+<!-- Subtitle telemetry chip -->
+<div class="inline-flex items-center gap-2 mt-1 px-3 py-1 rounded bg-slate-950/90 border border-cyan-500/30 text-[11px] font-mono text-cyan-300 shadow-[0_0_12px_rgba(0,240,255,0.15)]">
+<span class="text-rose-400 font-bold">▲ DISRUPTED</span>
+<span class="text-slate-500">::</span>
+<span class="">HTTP 404: PLACEMENT_ROUTE_NOT_FOUND</span>
+</div>
+</div>
+<!-- Descriptive Heading & Diagnostic Copy -->
+<div class="max-w-xl mx-auto mt-4 mb-6">
+<h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight mb-2.5">
+        Oops! Placement Route Lost in Orbit
+      </h2>
+<p class="text-sm md:text-base text-slate-300/80 leading-relaxed font-normal">
+        The resume optimization checkpoint or application portal you requested seems to have been relocated, archived by the TPO placement cell, or desynchronized from the campus matrix.
+      </p>
+</div>
+<!-- Glassmorphic Obsidian Diagnostics & Recovery Card -->
+
+</main>
+<!-- Placement Compliance Footer Bar (Matching the Suite) -->
+<footer class="relative z-10 px-6 py-3.5 glass-nav border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-3">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1.5 text-emerald-400">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="font-medium">100% Student Privacy Guarantee</span>
+</div>
+<span class="hidden md:inline text-slate-600">•</span>
+<span class="hidden md:inline text-slate-400">Aligned with IIT/NIT &amp; Tier 1/2 Placement Cells</span>
+<span class="hidden md:inline text-slate-600">•</span>
+<span class="hidden md:inline text-slate-400">Superset &amp; CoCubes Calibrated</span>
+</div>
+<div class="flex items-center gap-4 text-slate-400">
+<span class="text-slate-500">© 2025 Career Copilot</span>
+<a class="hover:text-slate-200 transition-colors" href="#">TPO Handbook</a>
+<a class="hover:text-slate-200 transition-colors" href="#">ATS Rules</a>
+<a class="hover:text-slate-200 transition-colors" href="#">Helpdesk</a>
+</div>
+</footer>
+
+
+</body></html>

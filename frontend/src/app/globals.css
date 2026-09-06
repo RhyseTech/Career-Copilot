@@ -1,0 +1,290 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  /* Core palette — deep dark obsidian */
+  --color-bg: #070a13;
+  --color-bg-alt: #060a12;
+  --color-surface: #0a0f1d;
+  --color-surface-elevated: #0e1526;
+  --color-card: rgba(15, 23, 42, 0.6);
+
+  /* Brand */
+  --color-indigo: #6366f1;
+  --color-indigo-dark: #4f46e5;
+  --color-cyan: #00f0ff;
+  --color-cyan-dim: #00dbe9;
+
+  /* Foreground */
+  --color-fg: #f1f5f9;
+  --color-fg-muted: #94a3b8;
+  --color-fg-subtle: #475569;
+
+  /* Legacy compat */
+  --color-primary: #6366f1;
+  --color-secondary: #4f46e5;
+  --color-accent: #00f0ff;
+  --color-neutral-0: rgba(15, 23, 42, 0.6);
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #94a3b8;
+  --color-neutral-300: #f8fafc;
+  --color-neutral-400: #1e293b;
+  --color-neutral-500: #334155;
+  --color-muted: #64748b;
+  --color-nav: rgba(9, 14, 24, 0.85);
+
+  /* Fonts */
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Spacing */
+  --spacing-2: 2px;
+  --spacing-18: 18px;
+  --spacing-22: 22px;
+  --spacing-30: 30px;
+  --spacing-32: 32px;
+  --spacing-34: 34px;
+  --spacing-38: 38px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-50: 50px;
+  --spacing-98: 98px;
+
+  /* Radii */
+  --radius-5: 5px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-15: 15px;
+  --radius-18: 18px;
+  --radius-24: 24px;
+
+  /* Durations */
+  --duration-150: 150ms;
+  --duration-200: 200ms;
+  --duration-300: 300ms;
+
+  /* Aurora text effect (Magic UI) */
+  --animate-aurora: aurora 8s ease-in-out infinite alternate;
+
+  /* Animated shiny text (Magic UI) */
+  --animate-shiny-text: shiny-text 8s infinite;
+
+  @keyframes shiny-text {
+    0%,
+    90%,
+    100% {
+      background-position: calc(-100% - var(--shiny-width)) 0;
+    }
+    30%,
+    60% {
+      background-position: calc(100% + var(--shiny-width)) 0;
+    }
+  }
+
+  @keyframes aurora {
+    0% {
+      background-position: 0% 50%;
+      transform: rotate(-5deg) scale(0.9);
+    }
+    25% {
+      background-position: 50% 100%;
+      transform: rotate(5deg) scale(1.1);
+    }
+    50% {
+      background-position: 100% 50%;
+      transform: rotate(-3deg) scale(0.95);
+    }
+    75% {
+      background-position: 50% 0%;
+      transform: rotate(3deg) scale(1.05);
+    }
+    100% {
+      background-position: 0% 50%;
+      transform: rotate(-5deg) scale(0.9);
+    }
+  }
+}
+
+/* ─── Light mode (class-driven) ───────────────────────────────────── */
+/* Palette absorbed from design reference:
+   Primary #0284C7 · Secondary #4F46E5 · Tertiary #059669 · Neutral #0F172A
+   Page #E9EDF6 · Cards #FFFFFF · Borders slate-200 */
+html:not(.dark) {
+  color-scheme: light;
+}
+
+html:not(.dark) body {
+  background-color: #e9edf6;
+  background-image:
+    radial-gradient(700px 320px at 12% -5%, rgba(2, 132, 199, 0.1), transparent 70%),
+    radial-gradient(800px 380px at 90% -5%, rgba(79, 70, 229, 0.1), transparent 70%);
+  color: #0f172a;
+}
+
+/* Dark 3D background + vignette only make sense in dark mode */
+html:not(.dark) [data-three-bg],
+html:not(.dark) [data-three-vignette] {
+  display: none;
+}
+
+/* ─── Base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background: rgba(99, 102, 241, 0.35);
+  color: #e0e7ff;
+}
+
+/* ─── Custom Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: rgba(6, 10, 18, 0.5); }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+/* Light-mode scrollbars (page + inner panels like AI suggestions) */
+html:not(.dark) {
+  scrollbar-color: #cbd5e1 transparent;
+}
+html:not(.dark) ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.06); }
+html:not(.dark) ::-webkit-scrollbar-thumb { background: #cbd5e1; }
+html:not(.dark) ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* ─── Glass Utilities ───────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.glass-nav {
+  background: rgba(9, 14, 24, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-pill {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Top specular border highlight */
+.specular-top::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 2rem;
+  right: 2rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.5), transparent);
+  pointer-events: none;
+}
+
+/* ─── Shimmer Badge ─────────────────────────────────────────────────── */
+.badge-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.badge-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: badgeShine 4s infinite linear;
+}
+@keyframes badgeShine {
+  0% { left: -100%; }
+  30%, 100% { left: 200%; }
+}
+
+/* ─── Glow Animations ───────────────────────────────────────────────── */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.45; filter: blur(40px); transform: scale(1); }
+  50% { opacity: 0.75; filter: blur(55px); transform: scale(1.08); }
+}
+@keyframes textFlicker {
+  0%, 100% { opacity: 1; }
+  41% { opacity: 0.95; }
+  42% { opacity: 0.7; }
+  43% { opacity: 1; }
+  82% { opacity: 1; }
+  83% { opacity: 0.85; }
+  84% { opacity: 1; }
+}
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+.animate-float { animation: floatGentle 5s ease-in-out infinite; }
+.animate-glow-pulse { animation: pulseGlow 6s ease-in-out infinite; }
+.glitch-text { animation: textFlicker 4s infinite; }
+
+/* ─── Gradient Text Helpers ────────────────────────────────────────── */
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 45%, #00f0ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-gradient-neon {
+  background: linear-gradient(135deg, #00f0ff 0%, #6366f1 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-gradient-hero {
+  background: linear-gradient(to right, #ffffff, #a5f3fc, #c7d2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Card Active Glow ──────────────────────────────────────────────── */
+.card-active-glow {
+  box-shadow: 0 0 35px -2px rgba(0, 240, 255, 0.28), 0 0 15px -2px rgba(99, 102, 241, 0.35);
+}
+
+/* ─── Animated Theme Toggler (View Transitions) ─────────────────────── */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Scoped to AnimatedThemeToggler — the toggler sets the data-attribute and the variable only during a theme toggle. */
+html[data-magicui-theme-vt="active"]::view-transition-group(root) {
+  animation-duration: var(--magicui-theme-toggle-vt-duration);
+}
+
+/* Pin the collapsed clip-path so the new theme never flashes fullscreen
+   before the JS-driven reveal animation starts (both directions). */
+html[data-magicui-theme-vt="active"]::view-transition-new(root) {
+  clip-path: var(--magicui-theme-vt-clip-from);
+}
