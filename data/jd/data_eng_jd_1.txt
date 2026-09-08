@@ -1,0 +1,43 @@
+Enterprise Data Foundation telemetry, as part of Cisco's telemetry data offerings, enables enhanced visibility of data for product adoption, up sale and cross sell across Cisco's enterprise portfolio. It collects and streams telemetry data from various Cisco products, such as Catalyst Center, Cisco Firewall, WebEx, Data Center product to name a few to provide insights into device performance, usage, and potential risks. This telemetry data helps customers and Cisco proactively identify opportunities for sales and CX to improve overall product experience.
+
+Key Aspects Include
+
+Collection of performance and operational data from customer product deployment and management platforms.
+Enabling analytics to understand feature utilization and customer satisfaction.
+Supporting proactive risk mitigation campaigns and customer enablement through targeted communications.
+Secure collection and handling of telemetry data with customer privacy considerations. 
+
+Your Impact
+
+Design, develop, and implement scalable and efficient data pipelines using AWS services (e.g., S3, EC2, ECS, Aurora).
+Write high-quality, maintainable Python code for data extraction, transformation, and loading (ETL) and Machine leaning / AI (LLM) processes.
+Develop and integrate with Web Services, Micro Services, and APIs to ingest and expose data from various internal and external sources.
+Implement robust Data Engineering solutions, including data modeling, database design, and data warehousing.
+Optimize data storage, retrieval, and processing for performance and cost-efficiency on AWS.
+Monitor and troubleshoot data pipeline issues, ensuring data quality, integrity, and availability.
+Collaborate with data scientists, analysts, and software engineers to understand data requirements and deliver solutions.
+Contribute to the development and enforcement of data governance policies and standards.
+Stay up-to-date with emerging technologies and industry trends in Data Engineering, cloud computing, and data management. 
+
+Minimum Qualifications
+
+Proven experience in Data Engineering roles, with a strong portfolio of data pipeline development.
+Proficiency in Python for data manipulation, automation, and scripting.
+4 years of professional experience in data engineering or a similar role.
+Extensive experience with cloud platforms, particularly AWS, including services relevant to data storage, processing, and analytics.
+Solid understanding and practical experience with designing and consuming Web Services and APIs.
+Familiarity with Micro Services architecture and its implications for data integration.
+Experience with relational and NoSQL databases.
+Strong understanding of data warehousing concepts and best practices.
+Ability to work independently and as part of a collaborative team.
+Strong communication and interpersonal skills.
+
+Preferred Qualifications
+
+Worked on at least one Machine Learning data pipeline
+Worked on at least one LLM based project
+Usage of large language models for development
+Understanding Text Classification/NLP
+Understanding of Tokenization and vectorization
+Understanding of Statistical analysis of data
+Excellent problem-solving and analytical skills.

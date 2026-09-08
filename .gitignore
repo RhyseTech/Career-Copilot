@@ -22,6 +22,7 @@ backend/resumeiq.db
 backend/temp_*/
 backend/rendercv_output/
 backend/scratch_rendercv_schema.json
+backend/app/uploads/
 
 # Node & Frontend
 node_modules/

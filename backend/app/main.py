@@ -23,8 +23,9 @@ def read_root():
 
 # Include routers
 from .routers import resume, ats, optimization, intelligence
+from .resume_jd.router import router as resume_jd_router
 app.include_router(resume.router)
 app.include_router(ats.router)
 app.include_router(optimization.router)
 app.include_router(intelligence.router)
-
+app.include_router(resume_jd_router)

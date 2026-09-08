@@ -74,6 +74,9 @@ export default function GlassNav() {
 
         {/* Right: theme + profile */}
         <div className="flex items-center space-x-3">
+          <Link href="/resume-jd" className="text-xs font-medium px-3 py-1.5 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 hover:bg-purple-500/20 transition-all shadow-sm">
+            Resume + JD
+          </Link>
           <AnimatedThemeToggler
             variant="circle"
             duration={500}

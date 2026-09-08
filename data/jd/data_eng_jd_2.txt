@@ -1,0 +1,27 @@
+Description & Requirements
+
+Electronic Arts creates next-level entertainment experiences that inspire players and fans around the world. Here, everyone is part of the story. Part of a community that connects across the globe. A place where creativity thrives, new perspectives are invited, and ideas matter. A team where everyone makes play happen.
+
+As a Data & AI Engineer, you will be responsible for the design and delivery of foundational data services, pipelines, and analytics systems that give visibility into our most important and critical systems - helping gamers to play at scale and having an impact across hundreds of games and millions of gamers. You will also build and leverage AI agents and LLM-powered workflows to automate data engineering operations, enforce data quality, and deliver actionable insights through clear visualizations. You will report to a Development Manager in PI&E.
+
+In Your Role You Will
+
+Collaborate with product, program and project management to ensure clarity and understanding of features and priorities.
+Build and maintain pipelines and ingest operational data and metrics from across EA's infrastructure.
+Mapping existing data sources with physical and logical architectures need to provide service hosting details and infrastructure insights
+Experience with and knowledge of LLMs, and agentic workflows
+Design and deploy AI agentic workflows to automate repetitive data engineering tasks such as schema inference, pipeline scaffolding, anomaly triage, and incident summarization.
+Integrate LLMs into operational tooling to enable natural-language querying of infrastructure metrics and automated root-cause analysis.
+Build interactive dashboards and visualizations that translate infrastructure telemetry into clear, actionable insights for engineering and leadership audiences.
+
+The next great EA Engineer Data & AI Engineer also needs:
+
+Experience using database technologies such as MySQL, MongoDB or Cassandra
+Experience with data lakehouse architectures, storage formats (Parquet, Iceberg, Avro), and OLAP data stores/data warehouses (BigQuery/BigLake, DeltaLake, Snowflake, or Redshift)
+Experience with workflow / ETL management platforms such as Airflow
+Experience with programming languages such as Python, Java, and/or Go.
+Public cloud provider experience (AWS, GCP, Azure.)
+Experience with LLMs and agentic AI frameworks such as LangChain, LangGraph, or Google ADK.
+Hands-on experience using LLMs and agentic developer tools (e.g., Claude Code, GitHub Copilot) to accelerate the software development lifecycle (SDLC) and automate coding tasks.
+Experience with data visualization tools such as Looker, Streamlit or Gradio.
+B.S. in Computer Science or equivalent training.

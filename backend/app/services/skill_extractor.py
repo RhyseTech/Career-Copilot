@@ -10,7 +10,7 @@ class SkillExtractor:
             "AWS", "Azure", "GCP", "Docker", "Kubernetes", "Terraform",
             "React", "Angular", "Vue", "Next.js", "Node.js", "Express",
             "FastAPI", "Django", "Flask", "Spring Boot",
-            "Machine Learning", "Data Analysis", "ETL", "PySpark", "Databricks", "Power BI",
+            "Machine Learning", "Data Analysis", "Data Engineering", "ETL", "PySpark", "Databricks", "Power BI",
             "Agile", "Scrum", "Git", "CI/CD"
         ]
         self.lower_canonical = {s.lower(): s for s in self.canonical_skills}
@@ -27,17 +27,14 @@ class SkillExtractor:
             if word in self.lower_canonical:
                 extracted.add(self.lower_canonical[word])
                 
-        # Basic Fuzzy match for phrases or misspellings (using token_set_ratio > 85 as per research)
-        # For a full production system, we'd chunk the text better.
+        # Basic Fuzzy match against the entire text chunk instead of single words
+        # This prevents "data" from matching "data analysis" with 100% score.
+        text_lower = text.lower()
         for skill in self.canonical_skills:
             if skill not in extracted:
-                match = process.extractOne(
-                    skill.lower(), 
-                    words, 
-                    scorer=fuzz.token_set_ratio, 
-                    score_cutoff=85
-                )
-                if match:
+                # We use token_set_ratio against the whole text
+                score = fuzz.token_set_ratio(skill.lower(), text_lower)
+                if score >= 85:
                     extracted.add(skill)
                     
         return list(extracted)
