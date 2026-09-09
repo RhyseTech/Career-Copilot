@@ -25,6 +25,8 @@ class MatchEngine:
         self.json_store.save_canonical_jd(canonical_jd)
         
         canonical_resume = self.resume_adapter.process_file(resume_file_path, "resume.pdf")
+        self.json_store.save_canonical_resume(canonical_resume)
+
         
         results = []
         

@@ -19,6 +19,7 @@ class CanonicalJD(BaseModel):
     jd_id: str = Field(..., description="Unique UUID for this parsed JD")
     content_hash: str = Field(..., description="SHA256 hash of the raw JD text to detect changes")
     job_title: Optional[str] = Field(None, description="Extracted job title")
+    created_at: Optional[str] = Field(None, description="ISO-8601 timestamp with +05:30 timezone")
     raw_text: str = Field(..., description="The complete raw text of the JD")
     
     # Phase 2 output: normalized representation

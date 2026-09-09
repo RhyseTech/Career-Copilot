@@ -24,8 +24,8 @@
 - **Phases:** 
   1. Document Parsing (Implemented - HybridJDParser & ResumeParser)
   2. Canonicalization (Implemented - JDAdapter & ResumeAdapter)
-  3. Requirements + Evidence (NOT implemented yet)
-  4. Matching (NOT implemented yet)
+  3. Requirements + Evidence (Implemented - Phase3Extractor)
+  4. Matching (Implemented - Phase4Matcher)
   5. Scoring (NOT implemented yet)
   6. Gap Analysis (NOT implemented yet)
   7. Optimization (NOT implemented yet)
@@ -36,15 +36,28 @@
   - `backend/app/resume_jd/adapters/resume_adapter.py`
   - `backend/app/resume_jd/adapters/jd_adapter.py`
   - `backend/tests/resume_jd/matching/test_phase_02_canonicalization.py`
+  - `backend/app/resume_jd/models/phase_03_models.py`
+  - `backend/app/resume_jd/pipelines/phase_03_extractor.py`
+  - `backend/tests/resume_jd/phase_03/test_phase_03_requirements.py`
+  - `backend/app/resume_jd/models/phase_04_models.py`
+  - `backend/app/resume_jd/matching/phase_04_config.py`
+  - `backend/app/resume_jd/matching/ontology.py`
+  - `backend/app/resume_jd/pipelines/phase_04_matcher.py`
+  - `backend/tests/resume_jd/phase_04/test_phase_04_matching.py`
+  - `backend/test_phase4_e2e.py`
 - **Files Modified:**
   - `backend/app/resume_jd/models/canonical_jd.py`
   - `backend/app/resume_jd/matching/normalizer.py`
   - `backend/app/resume_jd/matching/engine.py`
+  - `backend/app/resume_jd/storage/json_store.py`
 - **Implementation Details:** 
   - **Normalization Approach:** Strict, explicit mapping for aliases (e.g., "Amazon Web Services Glue" -> "AWS Glue", "k8s" -> "Kubernetes"). If an item doesn't map, its original value is preserved.
   - **Adapter Approach:** Adapters wrap the raw Parsers (Phase 1). They convert chunks and raw arrays into `CanonicalItem`s, packaging them into `CanonicalResume` and `CanonicalJD`. `MatchEngine` was updated to consume these.
-  - **Tests Executed:** Alias normalization, Multi-word normalization, Acronym normalization, No aggressive normalization, and both adapter conversions. (6/6 tests passed).
-  - **E2E Result:** The full `MatchEngine.process()` flow executed successfully without crashing, using the adapters internally. (Result: `{"requirements": []}` due to empty local LLM extraction block out-of-scope for Phase 2).
-  - **Known Limitations:** `SkillExtractor` (Phase 1) doesn't natively identify multi-word aliases unless specifically added; so `JDAdapter` performs a fallback normalization on the entire chunk to gracefully handle it.
-  - **Confirmation:** Phases 3-9 are absolutely NOT implemented.
-- **Next Step:** Phase 3 (Requirements + Evidence) implementation.
+  - **Phase 3 Source Grounding:** Strict deterministic validation; LLM provides `source_text` which is verified and converted into `source_span` offsets. Hallucinations are actively rejected.
+  - **Phase 3 Atomization:** Parent requirement capabilities are preserved distinctly from child `atoms` (technologies, skills), allowing downstream phases to connect exact canonical dependencies.
+  - **Phase 4 Matching:** Deterministic pipeline processing Candidate Generation (cheap/conservative) -> Lexical Analysis -> Semantic Analysis -> Ontology -> Qualifier Validation. Produces `MatchEdge[]` with specific categories (EXACT, RELATED, PARTIAL, TRANSFERABLE, GAP).
+  - **Phase 4 GAP Logic:** Resolves GAPs only at the REQUIREMENT level, rather than at the individual edge level, ensuring that if ANY valid evidence satisfies a requirement, it is NOT classified as a GAP.
+  - **Timestamping:** All Phase 3 artifacts are generated with an Asia/Kolkata ISO-8601 timestamp and naming prefix indicating chronological sort order via `JSONStore`.
+  - **Tests Executed:** E2E Phase 3 execution, deterministic source grounding acceptance/rejection tests, hallucination rejection, and canonical object linking tests. Phase 4 matching scenarios tests completed including logic assertions on match fall-through decisions (14/14 tests passing).
+  - **Confirmation:** Phases 5-9 are absolutely NOT implemented.
+- **Next Step:** Phase 5 (Scoring) architecture or implementation.
