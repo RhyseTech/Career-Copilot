@@ -1,8 +1,10 @@
 from typing import List, Dict
 from rapidfuzz import process, fuzz
+import warnings
 
 class SkillExtractor:
     def __init__(self):
+        warnings.warn("SkillExtractor is deprecated and causes severe capability loss. Use structured_data instead.", DeprecationWarning, stacklevel=2)
         # A simplified canonical skill dictionary for MVP
         self.canonical_skills = [
             "Python", "Java", "JavaScript", "TypeScript", "C++", "C#", "Ruby", "Go", "Rust",

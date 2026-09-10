@@ -43,7 +43,7 @@ export default function UploadPage() {
       
       setUploadData({
         resumeId: parsedData.resume_id,
-        filename: parsedData.filename,
+        filename: file.name,
         rawText: parsedData.raw_resume_text,
         structuredResume: parsedData.structured_resume,
       });

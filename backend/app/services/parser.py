@@ -99,8 +99,14 @@ class ResumeParser:
         if not has_resume_sections:
             raise ValueError("The uploaded document does not appear to be a valid resume. Please upload a standard resume with clear headers (e.g., Experience, Education, Skills).")
 
+        # Phase 1: Call LLM to extract structured RenderCV schema
+        from .llm_optimizer import LLMOptimizer
+        llm = LLMOptimizer()
+        structured_data = llm.generate_rendercv_json(raw_text)
+
         return {
             "raw_text": raw_text,
             "cleaned_text": cleaned_text,
-            "sections": sections
+            "sections": sections,
+            "structured_data": structured_data
         }

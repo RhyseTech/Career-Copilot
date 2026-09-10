@@ -1,0 +1,102 @@
+{
+  "analysis_id": "f69fc9af-95a3-4148-8587-dbb2ec44763e_cf989666-e37f-4aa3-b984-1b2518398966",
+  "created_at": "2026-09-10T17:27:02+05:30",
+  "match_edges": [
+    {
+      "requirement_id": "req_a2aa3ee7",
+      "requirement_atom_ids": [
+        "atom_7ad5f6f1",
+        "atom_0ce2ef55",
+        "atom_e3bf8686",
+        "atom_109b98a9",
+        "atom_d34a4beb",
+        "atom_1ae1d2d4"
+      ],
+      "evidence_ids": [],
+      "match_type": "GAP",
+      "satisfied_atoms": [],
+      "missing_atoms": [
+        "atom_7ad5f6f1",
+        "atom_0ce2ef55",
+        "atom_e3bf8686",
+        "atom_109b98a9",
+        "atom_d34a4beb",
+        "atom_1ae1d2d4"
+      ],
+      "lexical_features": {},
+      "semantic_features": {},
+      "ontology_features": {
+        "primary": "UNKNOWN"
+      },
+      "qualifier_results": {},
+      "category_compatibility": false,
+      "decision_reason": "No sufficient evidence was found for this requirement.",
+      "provenance_explanation": "",
+      "confidence": null,
+      "edge_id": "4e0a3fdb11dbfea1f1896403f9a947d674afb0e7638c33042b88c7ab88f805da"
+    },
+    {
+      "requirement_id": "req_169c2429",
+      "requirement_atom_ids": [
+        "atom_f43a01b2",
+        "atom_d5f7b31d",
+        "atom_cecdcf22",
+        "atom_33cc3337"
+      ],
+      "evidence_ids": [
+        "ev_6afc37c0"
+      ],
+      "match_type": "PARTIAL",
+      "satisfied_atoms": [
+        "atom_f43a01b2"
+      ],
+      "missing_atoms": [
+        "atom_d5f7b31d",
+        "atom_cecdcf22",
+        "atom_33cc3337"
+      ],
+      "lexical_features": {
+        "overlap": 0.1204819277108433
+      },
+      "semantic_features": {
+        "context": 0.3118239939212799
+      },
+      "ontology_features": {
+        "primary": "BROADER"
+      },
+      "qualifier_results": {
+        "yoe": "SATISFIED"
+      },
+      "category_compatibility": false,
+      "decision_reason": "1 of 4 requirement atoms have supporting evidence; 3 atoms remain unsupported.",
+      "provenance_explanation": "",
+      "confidence": null,
+      "edge_id": "ee0c19e005e7fcfe72e3efb860a8626561378b15728e3a0310fbe9f08d2bd10a"
+    },
+    {
+      "requirement_id": "req_4cfdbdb9",
+      "requirement_atom_ids": [
+        "atom_77724da3",
+        "atom_39e97401"
+      ],
+      "evidence_ids": [],
+      "match_type": "GAP",
+      "satisfied_atoms": [],
+      "missing_atoms": [
+        "atom_77724da3",
+        "atom_39e97401"
+      ],
+      "lexical_features": {},
+      "semantic_features": {},
+      "ontology_features": {
+        "primary": "UNKNOWN"
+      },
+      "qualifier_results": {},
+      "category_compatibility": false,
+      "decision_reason": "No sufficient evidence was found for this requirement.",
+      "provenance_explanation": "",
+      "confidence": null,
+      "edge_id": "195799357b33c65e5f05aa6de4a694bb55616c37ed65262a426d5f50b82cb4ee"
+    }
+  ]
+}

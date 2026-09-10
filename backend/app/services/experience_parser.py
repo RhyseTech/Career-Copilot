@@ -1,8 +1,10 @@
 import re
 from datetime import datetime
+import warnings
 
 class ExperienceParser:
     def __init__(self):
+        warnings.warn("ExperienceParser is deprecated and causes severe capability loss. Use structured_data instead.", DeprecationWarning, stacklevel=2)
         # Basic regex to catch date ranges like "Jan 2020 - Present" or "2018 - 2021"
         self.date_pattern = re.compile(
             r'((?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?\s+)?\d{4})\s*(?:-|to|–)\s*((?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?\s+)?\d{4}|Present|Current)', 

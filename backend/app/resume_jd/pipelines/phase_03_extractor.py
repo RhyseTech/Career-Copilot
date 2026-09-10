@@ -1,5 +1,6 @@
 import json
 import uuid
+import re
 from typing import List, Dict, Any, Optional
 
 from app.services.llm_optimizer import LLMOptimizer
@@ -13,6 +14,26 @@ class Phase3Extractor:
     def __init__(self):
         # Reuse existing API client connection logic, but we own the extraction abstraction
         self._llm_client = LLMOptimizer()
+
+    def _find_flexible_span(self, source_text: str, raw_text: str):
+        if not source_text or not raw_text:
+            return None, None
+            
+        parts = source_text.strip().split()
+        if not parts:
+            return None, None
+            
+        escaped_parts = [re.escape(p) for p in parts]
+        flexible_pattern = r'\s+'.join(escaped_parts)
+        
+        try:
+            match = re.search(flexible_pattern, raw_text)
+            if match:
+                return match.start(), match.end()
+        except re.error:
+            pass
+            
+        return None, None
     
     def process_jd(self, canonical_jd: CanonicalJD) -> List[JDRequirement]:
         raw_text = canonical_jd.raw_text
@@ -63,13 +84,14 @@ class Phase3Extractor:
         for req_data in extracted_data["requirements"]:
             # Source Grounding Validation
             source_text = req_data.get("source_text", "")
-            if not source_text or source_text not in raw_text:
+            start_index, end_index = self._find_flexible_span(source_text, raw_text)
+            
+            if start_index is None:
                 print(f"REJECTED: Hallucinated JD source_text: '{source_text}'")
                 continue # Reject unsupported output
                 
             # Calculate System offsets (source_span)
-            start_index = raw_text.find(source_text)
-            source_span = f"[{start_index}:{start_index+len(source_text)}]" if start_index != -1 else None
+            source_span = f"[{start_index}:{end_index}]"
                 
             atoms = []
             for atom_data in req_data.get("atoms", []):
@@ -109,7 +131,7 @@ class Phase3Extractor:
 
     def process_resume(self, canonical_resume: CanonicalResume, raw_resume_text: str) -> List[ResumeEvidence]:
         system_prompt = """
-        You are an expert technical recruiter AI. Extract evidence of candidate capabilities from a Resume and return strict JSON.
+        You are an expert technical recruiter AI. Extract meaningful candidate capabilities that are explicitly supported by the Resume and return strict JSON.
         
         OUTPUT FORMAT MUST BE STRICT JSON matching this schema exactly:
         {
@@ -120,19 +142,25 @@ class Phase3Extractor:
               "surrounding_context": "Broader context",
               "action": "The action performed (e.g. 'Built', 'Led')",
               "scale_impact": "Scale or impact (e.g. '2TB daily')",
-              "category": "SKILL",
-              "evidence_type": "EXPLICIT" or "INFERRED",
-              "provenance": "EXPLICIT" or "INFERRED",
-              "source_section": "e.g. 'Experience'",
+              "category": "TECHNOLOGY" | "SKILL" | "EXPERIENCE" | "PROJECT" | "EDUCATION" | "CERTIFICATION" | "RESPONSIBILITY" | "DOMAIN" | "SOFT_SKILL",
+              "evidence_type": "EXPLICIT" | "INFERRED",
+              "provenance": "EXPLICIT" | "INFERRED",
+              "source_section": "e.g. 'SUMMARY', 'SKILLS', 'EXPERIENCE', 'PROJECTS', 'CERTIFICATIONS'",
               "source_text": "THE EXACT VERBATIM SENTENCE FROM THE TEXT"
             }
           ]
         }
         
         CRITICAL RULES:
-        1. "source_text" MUST BE EXACT COPY-PASTE FROM THE INPUT TEXT. Do NOT calculate offsets.
-        2. Do NOT invent technologies.
-        3. Do NOT match or score.
+        1. "source_text" MUST BE EXACT COPY-PASTE FROM THE INPUT TEXT. Do NOT calculate offsets. If you modify the text even slightly, it will be rejected as hallucinated.
+        2. You MUST inspect ALL meaningful resume sections including SUMMARY, SKILLS, EXPERIENCE, PROJECTS, EDUCATION, CERTIFICATIONS, and other relevant sections.
+        3. Extract exhaustive evidence: You must extract every meaningful technology, tool, technical skill, domain capability, responsibility, project capability, and certification. Do not restrict evidence to certifications.
+        4. Evidence Granularity: ONE EVIDENCE OBJECT = ONE MEANINGFUL CANDIDATE CAPABILITY. Do not turn the resume into a keyword bag. Do not create evidence for generic words like "built" or "used" unless part of a meaningful capability. 
+        5. If a sentence says "Built ETL pipelines using Python and Spark", you should extract separate evidence objects for "Python", "Spark", and "ETL pipelines", all pointing to the same source sentence. Preserve the relationship (e.g., action="Built", surrounding_context="ETL pipelines").
+        6. SKILLS Section: If the resume contains a SKILLS section listing "Python", "SQL", etc., these are explicit evidence items. Extract them with source_section="SKILLS".
+        7. EXPERIENCE Section: Experience bullets are first-class evidence. "Developed REST APIs using FastAPI" provides evidence for "FastAPI" and "REST APIs".
+        8. Do NOT invent technologies not explicitly written.
+        9. Do NOT match or score against any job description. This must be a JD-independent extraction.
         """
         
         prompt = f"Extract evidence from this Resume:\n\n{raw_resume_text}"
@@ -145,12 +173,13 @@ class Phase3Extractor:
         for ev_data in extracted_data["evidence"]:
             # Source Grounding Validation
             source_text = ev_data.get("source_text", "")
-            if not source_text or source_text not in raw_resume_text:
+            start_index, end_index = self._find_flexible_span(source_text, raw_resume_text)
+            
+            if start_index is None:
                 print(f"REJECTED: Hallucinated Resume source_text: '{source_text}'")
                 continue
                 
-            start_index = raw_resume_text.find(source_text)
-            source_span = f"[{start_index}:{start_index+len(source_text)}]" if start_index != -1 else None
+            source_span = f"[{start_index}:{end_index}]"
             
             canonical_item_ids = self._find_matching_canonical_item_ids(
                 canonical_resume.items, ev_data.get("raw_value", "")

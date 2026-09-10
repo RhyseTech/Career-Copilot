@@ -1,0 +1,372 @@
+{
+  "jd_id": "cf989666-e37f-4aa3-b984-1b2518398966",
+  "content_hash": "ef8587ed6850b8dc5f35cdc323d3d539881965457aef6471fab3bbafed7aae3c",
+  "job_title": null,
+  "created_at": "2026-09-10T17:24:16+05:30",
+  "raw_text": "Enterprise Data Foundation telemetry, as part of Cisco's telemetry data offerings, enables enhanced visibility of data for product adoption, up sale and cross sell across Cisco's enterprise portfolio. It collects and streams telemetry data from various Cisco products, such as Catalyst Center, Cisco Firewall, WebEx, Data Center product to name a few to provide insights into device performance, usage, and potential risks. This telemetry data helps customers and Cisco proactively identify opportunities for sales and CX to improve overall product experience.\r\n\r\nKey Aspects Include\r\n\r\nCollection of performance and operational data from customer product deployment and management platforms.\r\nEnabling analytics to understand feature utilization and customer satisfaction.\r\nSupporting proactive risk mitigation campaigns and customer enablement through targeted communications.\r\nSecure collection and handling of telemetry data with customer privacy considerations. \r\n\r\nYour Impact\r\n\r\nDesign, develop, and implement scalable and efficient data pipelines using AWS services (e.g., S3, EC2, ECS, Aurora).\r\nWrite high-quality, maintainable Python code for data extraction, transformation, and loading (ETL) and Machine leaning / AI (LLM) processes.\r\nDevelop and integrate with Web Services, Micro Services, and APIs to ingest and expose data from various internal and external sources.\r\nImplement robust Data Engineering solutions, including data modeling, database design, and data warehousing.\r\nOptimize data storage, retrieval, and processing for performance and cost-efficiency on AWS.\r\nMonitor and troubleshoot data pipeline issues, ensuring data quality, integrity, and availability.\r\nCollaborate with data scientists, analysts, and software engineers to understand data requirements and deliver solutions.\r\nContribute to the development and enforcement of data governance policies and standards.\r\nStay up-to-date with emerging technologies and industry trends in Data Engineering, cloud computing, and data management. \r\n\r\nMinimum Qualifications\r\n\r\nProven experience in Data Engineering roles, with a strong portfolio of data pipeline development.\r\nProficiency in Python for data manipulation, automation, and scripting.\r\n4 years of professional experience in data engineering or a similar role.\r\nExtensive experience with cloud platforms, particularly AWS, including services relevant to data storage, processing, and analytics.\r\nSolid understanding and practical experience with designing and consuming Web Services and APIs.\r\nFamiliarity with Micro Services architecture and its implications for data integration.\r\nExperience with relational and NoSQL databases.\r\nStrong understanding of data warehousing concepts and best practices.\r\nAbility to work independently and as part of a collaborative team.\r\nStrong communication and interpersonal skills.\r\n\r\nPreferred Qualifications\r\n\r\nWorked on at least one Machine Learning data pipeline\r\nWorked on at least one LLM based project\r\nUsage of large language models for development\r\nUnderstanding Text Classification/NLP\r\nUnderstanding of Tokenization and vectorization\r\nUnderstanding of Statistical analysis of data\r\nExcellent problem-solving and analytical skills.",
+  "items": [
+    {
+      "id": "jd_dc432aa4",
+      "raw_value": "Data Engineering",
+      "normalized_value": "Data Engineering",
+      "category": "EXPERIENCE",
+      "provenance": "EXTRACTED",
+      "source_location": "Section: Required Qualifications",
+      "confidence": 0.9,
+      "requirement_type": "REQUIRED",
+      "weight": 1.7
+    },
+    {
+      "id": "jd_bdc66203",
+      "raw_value": "Python",
+      "normalized_value": "Python",
+      "category": "TECHNOLOGY",
+      "provenance": "EXTRACTED",
+      "source_location": "Section: Required Qualifications",
+      "confidence": 0.9,
+      "requirement_type": "REQUIRED",
+      "weight": 1.5
+    },
+    {
+      "id": "jd_c633c82b",
+      "raw_value": "Data Engineering",
+      "normalized_value": "Data Engineering",
+      "category": "EXPERIENCE",
+      "provenance": "EXTRACTED",
+      "source_location": "Section: Required Qualifications",
+      "confidence": 0.9,
+      "requirement_type": "REQUIRED",
+      "weight": 1.7
+    },
+    {
+      "id": "jd_deaca276",
+      "raw_value": "AWS",
+      "normalized_value": "AWS",
+      "category": "TECHNOLOGY",
+      "provenance": "EXTRACTED",
+      "source_location": "Section: Required Qualifications",
+      "confidence": 0.9,
+      "requirement_type": "REQUIRED",
+      "weight": 1.5
+    },
+    {
+      "id": "jd_7cc873fb",
+      "raw_value": "Web Services and APIs",
+      "normalized_value": "Web Services And Apis",
+      "category": "SKILL",
+      "provenance": "EXTRACTED",
+      "source_location": "Section: Required Qualifications",
+      "confidence": 0.9,
+      "requirement_type": "REQUIRED",
+      "weight": 1.5
+    },
+    {
+      "id": "jd_974b019e",
+      "raw_value": "Micro Services architecture",
+      "normalized_value": "Micro Services Architecture",
+      "category": "SKILL",
+      "provenance": "EXTRACTED",
+      "source_location": "Section: Required Qualifications",
+      "confidence": 0.9,
+      "requirement_type": "REQUIRED",
+      "weight": 1.5
+    },
+    {
+      "id": "jd_38ee4739",
+      "raw_value": "NoSQL",
+      "normalized_value": "NoSQL",
+      "category": "TECHNOLOGY",
+      "provenance": "EXTRACTED",
+      "source_location": "Section: Required Qualifications",
+      "confidence": 0.9,
+      "requirement_type": "REQUIRED",
+      "weight": 1.5
+    },
+    {
+      "id": "jd_dc8ef7b5",
+      "raw_value": "data warehousing",
+      "normalized_value": "Data Warehousing",
+      "category": "SKILL",
+      "provenance": "EXTRACTED",
+      "source_location": "Section: Required Qualifications",
+      "confidence": 0.9,
+      "requirement_type": "REQUIRED",
+      "weight": 1.5
+    },
+    {
+      "id": "jd_bdd80b51",
+      "raw_value": "Machine Learning",
+      "normalized_value": "Machine Learning",
+      "category": "TECHNOLOGY",
+      "provenance": "EXTRACTED",
+      "source_location": "Section: Preferred Qualifications",
+      "confidence": 0.9,
+      "requirement_type": "PREFERRED",
+      "weight": 1.0
+    },
+    {
+      "id": "jd_23fe96b5",
+      "raw_value": "LLM based project",
+      "normalized_value": "Llm Based Project",
+      "category": "SKILL",
+      "provenance": "EXTRACTED",
+      "source_location": "Section: Preferred Qualifications",
+      "confidence": 0.9,
+      "requirement_type": "PREFERRED",
+      "weight": 1.0
+    },
+    {
+      "id": "jd_7e69b998",
+      "raw_value": "large language models",
+      "normalized_value": "Large Language Models",
+      "category": "SKILL",
+      "provenance": "EXTRACTED",
+      "source_location": "Section: Preferred Qualifications",
+      "confidence": 0.9,
+      "requirement_type": "PREFERRED",
+      "weight": 1.0
+    },
+    {
+      "id": "jd_08296c7b",
+      "raw_value": "Text Classification/NLP",
+      "normalized_value": "Text Classification/Nlp",
+      "category": "SKILL",
+      "provenance": "EXTRACTED",
+      "source_location": "Section: Preferred Qualifications",
+      "confidence": 0.9,
+      "requirement_type": "PREFERRED",
+      "weight": 1.0
+    },
+    {
+      "id": "jd_8d283af0",
+      "raw_value": "Tokenization and vectorization",
+      "normalized_value": "Tokenization And Vectorization",
+      "category": "SKILL",
+      "provenance": "EXTRACTED",
+      "source_location": "Section: Preferred Qualifications",
+      "confidence": 0.9,
+      "requirement_type": "PREFERRED",
+      "weight": 1.0
+    },
+    {
+      "id": "jd_3da5c600",
+      "raw_value": "Data Analysis",
+      "normalized_value": "Data Analysis",
+      "category": "TECHNOLOGY",
+      "provenance": "EXTRACTED",
+      "source_location": "Section: Preferred Qualifications",
+      "confidence": 0.9,
+      "requirement_type": "PREFERRED",
+      "weight": 1.0
+    },
+    {
+      "id": "jd_503c63ca",
+      "raw_value": "AWS",
+      "normalized_value": "AWS",
+      "category": "TECHNOLOGY",
+      "provenance": "EXTRACTED",
+      "source_location": "Section: Responsibilities",
+      "confidence": 0.9,
+      "requirement_type": "REQUIRED",
+      "weight": 1.5
+    }
+  ],
+  "requirements": [
+    {
+      "requirement_id": "req_36798468",
+      "requirement_type": "REQUIRED",
+      "category": "EXPERIENCE",
+      "raw_text": "Proven experience in Data Engineering roles",
+      "source_span": "Proven experience in Data Engineering roles, with a strong portfolio of data pipeline development.",
+      "source_section": "Required Qualifications",
+      "confidence": 0.9,
+      "provenance": "EXTRACTED",
+      "weight": 1.7,
+      "canonical_skills": [
+        "Data Engineering"
+      ]
+    },
+    {
+      "requirement_id": "req_ede42498",
+      "requirement_type": "REQUIRED",
+      "category": "SKILL",
+      "raw_text": "Python",
+      "source_span": "Proficiency in Python for data manipulation, automation, and scripting.",
+      "source_section": "Required Qualifications",
+      "confidence": 0.9,
+      "provenance": "EXTRACTED",
+      "weight": 1.5,
+      "canonical_skills": [
+        "Python"
+      ]
+    },
+    {
+      "requirement_id": "req_ed8d20f1",
+      "requirement_type": "REQUIRED",
+      "category": "EXPERIENCE",
+      "raw_text": "4 years of professional experience in data engineering",
+      "source_span": "4 years of professional experience in data engineering or a similar role.",
+      "source_section": "Required Qualifications",
+      "confidence": 0.9,
+      "provenance": "EXTRACTED",
+      "weight": 1.7,
+      "canonical_skills": [
+        "Data Engineering"
+      ]
+    },
+    {
+      "requirement_id": "req_29de9100",
+      "requirement_type": "REQUIRED",
+      "category": "SKILL",
+      "raw_text": "AWS",
+      "source_span": "Extensive experience with cloud platforms, particularly AWS, including services relevant to data storage, processing, and analytics.",
+      "source_section": "Required Qualifications",
+      "confidence": 0.9,
+      "provenance": "EXTRACTED",
+      "weight": 1.5,
+      "canonical_skills": [
+        "AWS"
+      ]
+    },
+    {
+      "requirement_id": "req_3bd5d008",
+      "requirement_type": "REQUIRED",
+      "category": "SKILL",
+      "raw_text": "Web Services and APIs",
+      "source_span": "Solid understanding and practical experience with designing and consuming Web Services and APIs.",
+      "source_section": "Required Qualifications",
+      "confidence": 0.9,
+      "provenance": "EXTRACTED",
+      "weight": 1.5,
+      "canonical_skills": []
+    },
+    {
+      "requirement_id": "req_1cfd2c9f",
+      "requirement_type": "REQUIRED",
+      "category": "SKILL",
+      "raw_text": "Micro Services architecture",
+      "source_span": "Familiarity with Micro Services architecture and its implications for data integration.",
+      "source_section": "Required Qualifications",
+      "confidence": 0.9,
+      "provenance": "EXTRACTED",
+      "weight": 1.5,
+      "canonical_skills": []
+    },
+    {
+      "requirement_id": "req_52fdf15c",
+      "requirement_type": "REQUIRED",
+      "category": "SKILL",
+      "raw_text": "relational and NoSQL databases",
+      "source_span": "Experience with relational and NoSQL databases.",
+      "source_section": "Required Qualifications",
+      "confidence": 0.9,
+      "provenance": "EXTRACTED",
+      "weight": 1.5,
+      "canonical_skills": [
+        "NoSQL"
+      ]
+    },
+    {
+      "requirement_id": "req_0ab974f8",
+      "requirement_type": "REQUIRED",
+      "category": "SKILL",
+      "raw_text": "data warehousing",
+      "source_span": "Strong understanding of data warehousing concepts and best practices.",
+      "source_section": "Required Qualifications",
+      "confidence": 0.9,
+      "provenance": "EXTRACTED",
+      "weight": 1.5,
+      "canonical_skills": []
+    },
+    {
+      "requirement_id": "req_33815f59",
+      "requirement_type": "PREFERRED",
+      "category": "SKILL",
+      "raw_text": "Machine Learning data pipeline",
+      "source_span": "Worked on at least one Machine Learning data pipeline",
+      "source_section": "Preferred Qualifications",
+      "confidence": 0.9,
+      "provenance": "EXTRACTED",
+      "weight": 1.0,
+      "canonical_skills": [
+        "Machine Learning"
+      ]
+    },
+    {
+      "requirement_id": "req_f896af98",
+      "requirement_type": "PREFERRED",
+      "category": "SKILL",
+      "raw_text": "LLM based project",
+      "source_span": "Worked on at least one LLM based project",
+      "source_section": "Preferred Qualifications",
+      "confidence": 0.9,
+      "provenance": "EXTRACTED",
+      "weight": 1.0,
+      "canonical_skills": []
+    },
+    {
+      "requirement_id": "req_eb48e651",
+      "requirement_type": "PREFERRED",
+      "category": "SKILL",
+      "raw_text": "large language models",
+      "source_span": "Usage of large language models for development",
+      "source_section": "Preferred Qualifications",
+      "confidence": 0.9,
+      "provenance": "EXTRACTED",
+      "weight": 1.0,
+      "canonical_skills": []
+    },
+    {
+      "requirement_id": "req_9a55023e",
+      "requirement_type": "PREFERRED",
+      "category": "SKILL",
+      "raw_text": "Text Classification/NLP",
+      "source_span": "Understanding Text Classification/NLP",
+      "source_section": "Preferred Qualifications",
+      "confidence": 0.9,
+      "provenance": "EXTRACTED",
+      "weight": 1.0,
+      "canonical_skills": []
+    },
+    {
+      "requirement_id": "req_81ba80db",
+      "requirement_type": "PREFERRED",
+      "category": "SKILL",
+      "raw_text": "Tokenization and vectorization",
+      "source_span": "Understanding of Tokenization and vectorization",
+      "source_section": "Preferred Qualifications",
+      "confidence": 0.9,
+      "provenance": "EXTRACTED",
+      "weight": 1.0,
+      "canonical_skills": []
+    },
+    {
+      "requirement_id": "req_ee45ca5c",
+      "requirement_type": "PREFERRED",
+      "category": "SKILL",
+      "raw_text": "Statistical analysis of data",
+      "source_span": "Understanding of Statistical analysis of data",
+      "source_section": "Preferred Qualifications",
+      "confidence": 0.9,
+      "provenance": "EXTRACTED",
+      "weight": 1.0,
+      "canonical_skills": [
+        "Data Analysis"
+      ]
+    },
+    {
+      "requirement_id": "req_51e36031",
+      "requirement_type": "REQUIRED",
+      "category": "SKILL",
+      "raw_text": "AWS services (S3, EC2, ECS, Aurora)",
+      "source_span": "Design, develop, and implement scalable and efficient data pipelines using AWS services (e.g., S3, EC2, ECS, Aurora).",
+      "source_section": "Responsibilities",
+      "confidence": 0.9,
+      "provenance": "EXTRACTED",
+      "weight": 1.5,
+      "canonical_skills": [
+        "AWS"
+      ]
+    }
+  ]
+}

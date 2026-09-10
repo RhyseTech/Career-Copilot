@@ -153,6 +153,7 @@ class LLMOptimizer:
             return {"diagnostics": [{"field": f, "feedback": "Failed to generate AI diagnostic due to an error."} for f in lagging_fields]}
 
     def _call_gemini(self, prompt: str, system_prompt: str = None) -> Dict:
+        import time
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.gemini_model}:generateContent?key={self.gemini_key}"
         headers = {"Content-Type": "application/json"}
         payload = {
@@ -161,14 +162,29 @@ class LLMOptimizer:
             "generationConfig": {"responseMimeType": "application/json"}
         }
         
-        response = requests.post(url, headers=headers, json=payload, timeout=30)
-        response.raise_for_status()
-        
-        data = response.json()
-        text_response = data["candidates"][0]["content"]["parts"][0]["text"]
-        return json.loads(text_response)
+        max_retries = 3
+        base_delay = 2
+        for attempt in range(max_retries):
+            response = requests.post(url, headers=headers, json=payload, timeout=30)
+            if response.status_code in (503, 429):
+                if attempt < max_retries - 1:
+                    delay = base_delay * (2 ** attempt)
+                    print(f"Gemini Rate Limit/Unavailable ({response.status_code}) hit. Retrying in {delay} seconds (Attempt {attempt+1}/{max_retries})...")
+                    time.sleep(delay)
+                    continue
+            response.raise_for_status()
+            
+            data = response.json()
+            if data.get("candidates") and data["candidates"][0].get("finishReason") == "MAX_TOKENS":
+                raise Exception("Gemini generation incomplete: finish_reason=MAX_TOKENS")
+                
+            text_response = data["candidates"][0]["content"]["parts"][0]["text"]
+            return json.loads(text_response)
+            
+        raise Exception("Max retries exceeded for Gemini API")
 
     def _call_groq(self, prompt: str, system_prompt: str = None) -> Dict:
+        import time
         url = "https://api.groq.com/openai/v1/chat/completions"
         headers = {
             "Authorization": f"Bearer {self.groq_key}",
@@ -177,18 +193,81 @@ class LLMOptimizer:
         payload = {
             "model": self.groq_model,
             "response_format": {"type": "json_object"},
+            "max_tokens": 8192,
             "messages": [
                 {"role": "system", "content": system_prompt or self.system_prompt},
                 {"role": "user", "content": prompt}
             ]
         }
         
-        response = requests.post(url, headers=headers, json=payload, timeout=30)
-        response.raise_for_status()
+        max_retries = 3
+        base_delay = 2
+        for attempt in range(max_retries):
+            response = requests.post(url, headers=headers, json=payload, timeout=60)
+            if response.status_code == 429:
+                if attempt < max_retries - 1:
+                    delay = base_delay * (2 ** attempt)
+                    print(f"Groq Rate Limit (429) hit. Retrying in {delay} seconds (Attempt {attempt+1}/{max_retries})...")
+                    time.sleep(delay)
+                    continue
+            if not response.ok:
+                raise Exception(f"Groq API HTTP {response.status_code}: {response.text}")
+            
+            data = response.json()
+            choice = data["choices"][0]
+            if choice.get("finish_reason") == "length":
+                raise Exception("Groq generation incomplete: finish_reason=length")
+                
+            text_response = choice["message"]["content"]
+            return json.loads(text_response)
         
-        data = response.json()
-        text_response = data["choices"][0]["message"]["content"]
-        return json.loads(text_response)
+        raise Exception("Max retries exceeded for Groq API")
+    def _validate_rendercv_completeness(self, raw_text: str, parsed_json: Dict):
+        if not isinstance(parsed_json, dict):
+            raise Exception("Validation Error: Root must be a JSON object")
+            
+        cv = parsed_json.get("cv")
+        if not isinstance(cv, dict):
+            raise Exception("Validation Error: Missing or invalid 'cv' object")
+            
+        sections = cv.get("sections")
+        if not isinstance(sections, dict):
+            raise Exception("Validation Error: Missing or invalid 'sections' object")
+            
+        expected_keys = ["summary", "experience", "education", "projects", "certifications", "skills"]
+        for key in expected_keys:
+            if key in sections and not isinstance(sections[key], list):
+                raise Exception(f"Validation Error: '{key}' must be a list")
+                
+        if "experience" in sections:
+            for exp in sections["experience"]:
+                if not isinstance(exp, dict) or "company" not in exp or "position" not in exp:
+                    raise Exception("Validation Error: Invalid experience entry structure")
+                    
+        raw_lower = raw_text.lower()
+        
+        has_exp = "experience" in raw_lower or "employment" in raw_lower
+        ext_exp = len(sections.get("experience", []))
+        if has_exp and ext_exp == 0:
+            raise Exception("Material Validation Error: Source contains experience but none was extracted")
+        if has_exp and ext_exp == 1 and len(raw_text) > 1500:
+            raise Exception("Material Validation Error: Structured experience unexpectedly contains only one entry")
+            
+        has_proj = "project" in raw_lower
+        ext_proj = len(sections.get("projects", []))
+        if has_proj and ext_proj == 0:
+            raise Exception("Material Validation Error: Source contains projects but none were extracted")
+            
+        has_cert = "certifications" in raw_lower or "licenses" in raw_lower
+        ext_cert = len(sections.get("certifications", []))
+        if has_cert and ext_cert == 0:
+            raise Exception("Material Validation Error: Source contains certifications but none were extracted")
+            
+        has_edu = "education" in raw_lower or "academic" in raw_lower or "degree" in raw_lower
+        ext_edu = len(sections.get("education", []))
+        if has_edu and ext_edu == 0:
+            raise Exception("Material Validation Error: Source contains education but none was extracted")
+
     def generate_rendercv_json(self, resume_text: str) -> Dict:
         """
         Parses raw resume text and constructs a JSON object matching the RenderCV data model.
@@ -281,25 +360,31 @@ RULES:
             if self.provider.lower() == "gemini" and self.gemini_key:
                 try:
                     result = self._call_gemini(prompt, sys_prompt)
+                    self._validate_rendercv_completeness(resume_text, result)
                 except Exception as e:
-                    print(f"Gemini API failed in RenderCV JSON: {e}. Falling back to Groq...")
+                    print(f"Gemini API failed or output invalid in RenderCV JSON: {e}. Falling back to Groq...")
                     if self.groq_key:
                         result = self._call_groq(prompt, sys_prompt)
+                        self._validate_rendercv_completeness(resume_text, result)
                     else:
                         raise e
             elif self.provider.lower() == "groq" and self.groq_key:
                 try:
                     result = self._call_groq(prompt, sys_prompt)
+                    self._validate_rendercv_completeness(resume_text, result)
                 except Exception as e:
-                    print(f"Groq API failed in RenderCV JSON: {e}. Falling back to Gemini...")
+                    print(f"Groq API failed or output invalid in RenderCV JSON: {e}. Falling back to Gemini...")
                     if self.gemini_key:
                         result = self._call_gemini(prompt, sys_prompt)
+                        self._validate_rendercv_completeness(resume_text, result)
                     else:
                         raise e
             elif self.gemini_key:
                 result = self._call_gemini(prompt, sys_prompt)
+                self._validate_rendercv_completeness(resume_text, result)
             elif self.groq_key:
                 result = self._call_groq(prompt, sys_prompt)
+                self._validate_rendercv_completeness(resume_text, result)
             else:
                 raise ValueError("No valid LLM provider or API keys configured.")
             
@@ -309,4 +394,4 @@ RULES:
                 
         except Exception as e:
             print(f"Failed to generate RenderCV JSON (all fallbacks exhausted): {e}")
-            return None
+            raise Exception(f"Phase 1 LLM Extraction Failure: {e}")

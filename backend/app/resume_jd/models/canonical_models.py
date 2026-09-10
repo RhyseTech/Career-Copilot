@@ -17,5 +17,6 @@ class CanonicalItem(BaseModel):
 class CanonicalResume(BaseModel):
     resume_id: str = Field(..., description="Unique UUID for this resume")
     file_name: str
+    content_hash: Optional[str] = Field(None, description="SHA256 hash of the resume bytes")
     created_at: Optional[str] = Field(None, description="ISO-8601 timestamp with +05:30 timezone")
     items: List[CanonicalItem] = Field(default_factory=list, description="All extracted canonical items")

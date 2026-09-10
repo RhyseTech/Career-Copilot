@@ -1,6 +1,6 @@
 from enum import Enum
 from typing import List, Literal, Optional, Dict, Any
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, computed_field
 
 class OntologyRelation(str, Enum):
     EQUIVALENT = "EQUIVALENT"
@@ -30,3 +30,22 @@ class MatchEdge(BaseModel):
     decision_reason: str
     provenance_explanation: str = ""
     confidence: Optional[float] = None
+
+    @computed_field
+    @property
+    def edge_id(self) -> str:
+        import hashlib
+        import json
+        
+        canon_req = str(self.requirement_id)
+        canon_atoms = sorted([str(a) for a in self.requirement_atom_ids])
+        canon_evidences = sorted([str(e) for e in self.evidence_ids])
+        
+        data_str = json.dumps({
+            "req": canon_req,
+            "atoms": canon_atoms,
+            "evidence": canon_evidences,
+            "match_type": self.match_type
+        }, sort_keys=True)
+        
+        return hashlib.sha256(data_str.encode('utf-8')).hexdigest()

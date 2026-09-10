@@ -1,8 +1,10 @@
+import warnings
 from typing import Dict, List
 from .semantic_engine import SemanticEngine
 
 class JDScoringEngine:
     def __init__(self):
+        warnings.warn("JDScoringEngine is deprecated and should not be used as the authoritative score.", DeprecationWarning, stacklevel=2)
         self.semantic_engine = SemanticEngine()
         self.STABILITY_CONSTANT = 100 # Represents C in the formula, scaled to 100
 

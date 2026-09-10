@@ -52,8 +52,10 @@ class MatchRequest(BaseModel):
 from ..services.jd_parser import JDParser
 from ..services.jd_scoring_engine import JDScoringEngine
 
-@router.post("/match")
+@router.post("/match", deprecated=True)
 async def match_resume_to_jd(request: MatchRequest) -> Dict:
+    import warnings
+    warnings.warn("The /ats/match endpoint is deprecated. Use /resume-jd/analysis/run instead.", DeprecationWarning, stacklevel=2)
     file_path = os.path.join(UPLOAD_DIR, request.filename)
     if not os.path.exists(file_path):
         raise HTTPException(status_code=404, detail="Resume file not found")

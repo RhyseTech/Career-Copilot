@@ -1,3 +1,4 @@
+import warnings
 from typing import Dict, Any, List
 from app.resume_jd.adapters.jd_adapter import JDAdapter
 from app.resume_jd.adapters.resume_adapter import ResumeAdapter
@@ -7,6 +8,7 @@ from app.resume_jd.storage.json_store import JSONStore
 
 class MatchEngine:
     def __init__(self):
+        warnings.warn("MatchEngine is deprecated in favor of Phase 3-5 pipeline.", DeprecationWarning, stacklevel=2)
         self.jd_adapter = JDAdapter()
         self.resume_adapter = ResumeAdapter()
         self.similarity = SimilarityEngine()
@@ -20,14 +22,25 @@ class MatchEngine:
         2. Parse & Canonicalize Resume -> CanonicalResume
         3. For each requirement, find best evidence and classify match type
         """
-        # Phase 2 Adaptation
-        canonical_jd = self.jd_adapter.adapt(jd_text)
-        self.json_store.save_canonical_jd(canonical_jd)
+        import hashlib
         
-        canonical_resume = self.resume_adapter.process_file(resume_file_path, "resume.pdf")
-        self.json_store.save_canonical_resume(canonical_resume)
+        jd_hash = hashlib.sha256(jd_text.encode('utf-8')).hexdigest()
+        canonical_jd = self.json_store.get_canonical_jd_by_hash(jd_hash)
+        if not canonical_jd:
+            canonical_jd = self.jd_adapter.adapt(jd_text)
+            canonical_jd.content_hash = jd_hash
+            self.json_store.save_canonical_jd(canonical_jd)
+            
+        with open(resume_file_path, "rb") as f:
+            resume_bytes = f.read()
+        res_hash = hashlib.sha256(resume_bytes).hexdigest()
+        
+        canonical_resume = self.json_store.get_canonical_resume_by_hash(res_hash)
+        if not canonical_resume:
+            canonical_resume = self.resume_adapter.process_file(resume_file_path, "resume.pdf")
+            canonical_resume.content_hash = res_hash
+            self.json_store.save_canonical_resume(canonical_resume)
 
-        
         results = []
         
         for req in canonical_jd.items:
@@ -79,4 +92,8 @@ class MatchEngine:
                 }
             })
             
-        return {"requirements": results}
+        return {
+            "requirements": results,
+            "canonical_jd": canonical_jd,
+            "canonical_resume": canonical_resume
+        }

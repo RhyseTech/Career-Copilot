@@ -24,7 +24,8 @@ class LLMExtractor:
             "category": "SKILL" | "EXPERIENCE" | "EDUCATION" | "CERTIFICATION" | "GENERAL",
             "requirement_type": "REQUIRED" | "PREFERRED",
             "raw_text": "The exact name of the skill or requirement (e.g., 'Python', 'AWS', 'Bachelor Degree')",
-            "source_span": "The EXACT matching substring from the original text that proves this requirement exists."
+            "source_span": "The EXACT matching substring from the original text that proves this requirement exists.",
+            "source_section": "The name of the section header this requirement was found under (e.g., 'Required Qualifications', 'Responsibilities')"
           }
         ]
         

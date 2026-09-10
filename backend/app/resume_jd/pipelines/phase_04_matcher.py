@@ -136,6 +136,23 @@ class Phase4Matcher:
 
         return candidates
 
+    def _safe_contains(self, needle: str, haystack: str) -> bool:
+        """
+        Safely checks if `needle` exists within `haystack` using word boundaries.
+        Also allows a trailing 's' for simple plurals.
+        Prevents false positive substring matches (e.g., 'aws' in 'lawsmith').
+        """
+        if not needle or not haystack:
+            return False
+            
+        # Optional 's' at the end of the word boundary
+        pattern = r'\b' + re.escape(needle.lower()) + r'(?:s)?\b'
+        
+        try:
+            return bool(re.search(pattern, haystack.lower()))
+        except re.error:
+            return False
+
     # -------------------------------------------------------------------------
     # Candidate Evaluation
     # -------------------------------------------------------------------------
@@ -190,7 +207,7 @@ class Phase4Matcher:
         # Atom-level raw_value match
         if not canonical_overlap and hasattr(req, "atoms") and req.atoms:
             req_vals = {a.raw_value.lower() for a in req.atoms}
-            if ev_text.lower() in req_vals or ev_concept.lower() in req_vals:
+            if any(self._safe_contains(r_val, ev_text) or self._safe_contains(r_val, ev_concept) for r_val in req_vals):
                 canonical_overlap = True
 
         category_compat = self._check_category_compatibility(req.category, ev.category)
@@ -203,8 +220,8 @@ class Phase4Matcher:
                 atom_satisfied = False
                 ratom_concept = self._extract_concept(ratom.raw_value)
 
-                if ratom.raw_value.lower() == ev_text.lower() or \
-                   (ratom_concept and ratom_concept.lower() == ev_concept.lower()) or \
+                if self._safe_contains(ratom.raw_value, ev_text) or \
+                   (ratom_concept and self._safe_contains(ratom_concept, ev_concept)) or \
                    self.ontology.get_relation(ratom.raw_value, ev_text) in (
                        OntologyRelation.EQUIVALENT, OntologyRelation.BROADER):
                     atom_satisfied = True

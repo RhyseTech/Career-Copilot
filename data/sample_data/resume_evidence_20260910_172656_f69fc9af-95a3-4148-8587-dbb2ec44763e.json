@@ -1,0 +1,55 @@
+{
+  "resume_id": "f69fc9af-95a3-4148-8587-dbb2ec44763e",
+  "created_at": "2026-09-10T17:26:56+05:30",
+  "evidence": [
+    {
+      "evidence_id": "ev_6afc37c0",
+      "raw_value": "PySpark",
+      "evidence_text": "Certified Data Engineer with experience designing and maintaining scalable data pipelines using PySpark, SQL, Databricks, and AWS.",
+      "surrounding_context": "designing and maintaining scalable data pipelines",
+      "action": "designing and maintaining",
+      "scale_impact": "",
+      "category": "TECHNOLOGY",
+      "evidence_type": "EXPLICIT",
+      "provenance": "EXPLICIT",
+      "source_document_id": "f69fc9af-95a3-4148-8587-dbb2ec44763e",
+      "source_section": "SUMMARY",
+      "source_field": null,
+      "source_sentence": "Certified Data Engineer with experience designing and maintaining scalable data pipelines using PySpark, SQL, Databricks, and AWS.",
+      "source_span": "[139:270]",
+      "canonical_item_ids": [
+        "res_560b9a1c",
+        "res_d28c7554",
+        "res_78251ca0",
+        "res_f7fb59c8"
+      ]
+    },
+    {
+      "evidence_id": "ev_aa36afc3",
+      "raw_value": "SQL",
+      "evidence_text": "Certified Data Engineer with experience designing and maintaining scalable data pipelines using PySpark, SQL, Databricks, and AWS.",
+      "surrounding_context": "designing and maintaining scalable data pipelines",
+      "action": "designing and maintaining",
+      "scale_impact": "",
+      "category": "TECHNOLOGY",
+      "evidence_type": "EXPLICIT",
+      "provenance": "EXPLICIT",
+      "source_document_id": "f69fc9af-95a3-4148-8587-dbb2ec44763e",
+      "source_section": "SUMMARY",
+      "source_field": null,
+      "source_sentence": "Certified Data Engineer with experience designing and maintaining scalable data pipelines using PySpark, SQL, Databricks, and AWS.",
+      "source_span": "[139:270]",
+      "canonical_item_ids": [
+        "res_d9ec1c93",
+        "res_23f3d48e",
+        "res_5365f06d",
+        "res_b1e432f9",
+        "res_1f2791fe",
+        "res_9f3b3188",
+        "res_ee468908",
+        "res_506146bc",
+        "res_62e7ff9d"
+      ]
+    }
+  ]
+}
